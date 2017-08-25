@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import '../../assets/styles/host/App.styl'
-import Footer from '../../components/Footer'
+import '../../assets/styles/find/App.styl'
+// import fetch from 'whatwg-fetch'
 class App extends Component {
   constructor (props) {
     super(props)
@@ -23,15 +23,19 @@ class App extends Component {
       })
   }
   render () {
+    const dataArray = this.state.data.map(function (item, index) {
+      return (
+        <p key={index.toString()}>{item.title}</p>
+      )
+    })
     return (
       <div>
         <h1>App</h1>
-        <a href='article.html'>去文章</a>
-        <br />
-        <a href='find.html'>去发现</a>
-        <Footer />
+        <a href='about.html'>去关于我们</a>
+        {dataArray}
       </div>
     )
   }
 }
+
 export default App

@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import '../../assets/styles/App.styl'
+import '../../assets/styles/find/App.styl'
 import TopControl from '../../components/hover/TopControl'
-
 class App extends Component {
   render () {
     return (
@@ -11,5 +10,4 @@ class App extends Component {
     )
   }
 }
-
 export default App
