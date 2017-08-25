@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
-import '../../assets/styles/App.styl'
+import '../../assets/styles/host/App.styl'
 // import fetch from 'whatwg-fetch'
+import Footer from '../../components/Footer'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -23,16 +25,9 @@ class App extends Component {
       })
   }
   render () {
-    const dataArray = this.state.data.map(function (item, index) {
-      return (
-        <p key={index.toString()}>{item.title}</p>
-      )
-    })
     return (
       <div>
-        <h1>App</h1>
-        <a href='about.html'>去关于我们</a>
-        {dataArray}
+        <Footer />
       </div>
     )
   }
