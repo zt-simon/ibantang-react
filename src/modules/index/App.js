@@ -32,6 +32,8 @@ class App extends Component {
       <div>
         <h1>App</h1>
         <a href='about.html'>去关于我们</a>
+        <br />
+        <a href='find.html'>去发现</a>
         {dataArray}
       </div>
     )
