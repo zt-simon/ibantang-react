@@ -120,7 +120,7 @@ class Footer extends Component {
               <div className='footer-shareClub'>购物分享社区</div>
             </div>
             <div className='footer-code'>
-              <img src={require('../assets/images/footer-code.png')} alt='777' className='code-logo' />
+              <img src={require('../../assets/images/footer-code.png')} alt='777' className='code-logo' />
             </div>
           </div>
         </div>
