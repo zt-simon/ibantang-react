@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from './Header'
-class Top extends Component {
+class TopControl extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -26,4 +26,4 @@ class Top extends Component {
     )
   }
 }
-export default Top
+export default TopControl
