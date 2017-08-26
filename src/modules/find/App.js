@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import '../../assets/styles/find/App.styl'
-import TopControl from '../../components/hover/TopControl'
+import FindControl from '../../components/find/FindControl'
 class App extends Component {
   render () {
     return (
       <div className='wrap'>
-        <TopControl />
+        <FindControl />
       </div>
     )
   }
