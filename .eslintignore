@@ -2,3 +2,4 @@ build/*
 config/*
 dist/*.js
 node_modules/*.js
+src/assets/images/*
