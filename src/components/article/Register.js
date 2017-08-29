@@ -51,10 +51,10 @@ class Register extends Component {
           </div>
           <div className="img-s-out clear">
             <div className="mg-weibo-s-out left">
-              <div alt="" className="img-s img-weibo-s" /> <br /><div className="weibo-s">微博</div>
+              <a href="https://api.weibo.com/oauth2/authorize" className="img-s img-weibo-s" /> <br /><div className="weibo-s">微博</div>
             </div>
             <div className="img-wechat-s-out right">
-              <div className="img-s img-wechat-s" alt="" /> <br /><div className="qq-s">QQ</div>
+              <a href='https://graph.qq.com/oauth/show?which=Login' className="img-s img-wechat-s" alt="" /> <br /><div className="qq-s">QQ</div>
             </div>
           </div>
         </form>
