@@ -26,7 +26,7 @@ class Footer extends Component {
   }
   render () {
     return (
-      <div>
+      <div className='footer-wrap'>
         <div className='footer' >
           <div className='footer-line firstline'>
             <p><a href='#'>关于我们</a></p>

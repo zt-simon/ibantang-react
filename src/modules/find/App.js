@@ -5,11 +5,7 @@ import '../../assets/styles/host/App.styl'
 import '../../assets/styles/host/Slideshow.styl'
 class App extends Component {
   render () {
-    return (
-      <div className='wrap'>
-        <FindControl />
-      </div>
-    )
+    return <FindControl />
   }
 }
 export default App

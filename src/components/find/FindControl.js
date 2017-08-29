@@ -6,10 +6,12 @@ import Footer from '../index/Footer'
 class FindControl extends Component {
   render () {
     return (
-      <div>
+      <div className='wrap'>
         <TopControl />
         <Main />
-        <Footer />
+        <div className='bottom'>
+          <Footer />
+        </div>
       </div>
     )
   }
