@@ -7,6 +7,7 @@ import Footer from '../../components/index/Footer'
 import SlideShow from '../../components/index/Slideshow'
 import TopControl from '../../components/top/TopControl'
 import Content from '../../components/index/Content'
+import Clickme from '../../components/article/Clickme'
 class App extends Component {
   render () {
     return (
@@ -15,6 +16,9 @@ class App extends Component {
           <TopControl />
         </div>
         <SlideShow />
+        <div className='click'>
+          <Clickme />
+        </div>
         <Content />
         <Footer />
       </div>
