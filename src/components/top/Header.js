@@ -32,10 +32,11 @@ class Header extends Component {
       <div className='header'>
         <div className='header_nav'>
           <ul>
+            <li className='logo'><a href='index.html' /></li>
             <li className='header_nav_li'><a href='index.html'>首页</a></li>
-            <li className='header_nav_li'><a href='#'>发现</a></li>
+            <li className='header_nav_li'><a href='find.html'>发现</a></li>
             <li className='header_nav_li'><a href='#'>好物</a></li>
-            <li className='header_nav_li'><a href='#'>写文章</a></li>
+            <li className='header_nav_li'><a href='article.html'>写文章</a></li>
             <li className='header_nav_li'><a href='#'>优惠券</a>
               <i className='i' /></li>
           </ul>

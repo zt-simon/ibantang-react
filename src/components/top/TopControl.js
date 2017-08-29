@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from './Header'
-class Top extends Component {
+import Register from '../article/Register'
+class TopControl extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -20,10 +21,12 @@ class Top extends Component {
   render () {
     return (
       <div>
+        <div className='register' style={{display: this.state.hover}} onClick={this.hoverClick}><Register />
+        </div>
         <div className='hover' style={{display: this.state.hover}} onClick={this.hoverClick} />
         <Header clicked={this.click} />
       </div>
     )
   }
 }
-export default Top
+export default TopControl
