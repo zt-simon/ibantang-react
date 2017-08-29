@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import '../../assets/styles/host/App.styl'
-import Footer from '../../components/Footer'
+import '../../assets/styles/host/Slideshow.styl'
+import Footer from '../../components/index/Footer'
+import SlideShow from '../../components/index/Slideshow'
+import Mask from '../../components/index/Mask'
 class App extends Component {
   constructor (props) {
     super(props)
@@ -25,10 +28,11 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>App</h1>
         <a href='article.html'>去文章</a>
         <br />
         <a href='find.html'>去发现</a>
+        <SlideShow />
+        <Mask />
         <Footer />
       </div>
     )

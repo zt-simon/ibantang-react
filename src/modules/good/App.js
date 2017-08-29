@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import '../../assets/styles/find/App.styl'
+import '../../assets/styles/find/find.styl'
 // import fetch from 'whatwg-fetch'
 class App extends Component {
   constructor (props) {
