@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-
 class Footer extends Component {
   constructor (props) {
     super(props)
@@ -131,5 +130,4 @@ class Footer extends Component {
     )
   }
 }
-
 export default Footer
