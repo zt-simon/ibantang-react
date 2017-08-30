@@ -3,12 +3,28 @@ import Register from './Register'
 import Clickme from './Clickme'
 import Addproduct from './Addproduct'
 let flag = false
+let valArr = []
+let innerTextArr = []
 class Article extends Component {
+  // static propTypes = {
+  //   getVal: React.PropTypes.func
+  // }
   constructor (porps) {
     super(porps)
     this.state = {
-      display: 'none'
+      display: 'none',
+      displayAdd: 'none',
+      value: '',
+      innerText: ''
     }
+  }
+  handleVal = (val, inner) => {
+    this.setState({
+      value: val,
+      innerText: inner
+    })
+    valArr.push(this.state.value)
+    innerTextArr.push(this.state.innerText)
   }
   click = () => {
     flag = !flag
@@ -22,7 +38,41 @@ class Article extends Component {
       })
     }
   }
+  clickAdd = () => {
+    this.setState({
+      displayAdd: 'block'
+    })
+  }
+  clickAddRemove = () => {
+    this.setState({
+      displayAdd: 'none'
+    })
+  }
+  clickget = () => {
+    this.refs.getAdd.getVal()
+    console.log(this.state.innerText)
+    this.setState({
+      displayAdd: 'none'
+    })
+    console.log(valArr)
+    console.log(innerTextArr)
+  }
+  removeDiv = (ev) => {
+    ev.target.parentNode.remove()
+  }
   render () {
+    let arrBig = []
+    if (innerTextArr.length > 1) {
+      for (var i = 1; i < innerTextArr.length; i++) {
+        // console.log('1')
+        arrBig.push(
+          <div className="arr-all-d-s">
+            <img src={valArr[i]} alt="" className="add-pic-s" /><span>{innerTextArr[i]}</span>
+            <div className="remove-X-s" onClick={this.removeDiv}>X</div>
+          </div>
+        )
+      }
+    }
     return (
       <div>
         <div className="click-me-s">
@@ -46,15 +96,16 @@ class Article extends Component {
             <span className="line-s-lightgray" /><br />
             <input className="file" type="file" />
             <div className="file-pic font-size">添加图片</div>
-            <div className="product-s font-size">添加商品</div>
+            <div className="product-s font-size" onClick={this.clickAdd}>添加商品</div>
           </div>
-          <textarea className="text-s" name="" id="" cols="100" rows="33" />
+          <div className="hidden-div" />
+          {arrBig}
         </div>
-        <div className="add-product">
-          <Addproduct />
+        <div style={{display: this.state.displayAdd}} className="add-product">
+          <Addproduct handleVal={this.handleVal} ref="getAdd" />
           <div className="footer-all-s">
-            <a href="#">取消</a>
-            <a href="#">完成</a>
+            <a onClick={this.clickAddRemove} href="#">取消</a>
+            <a href="#" onClick={this.clickget}>完成</a>
           </div>
         </div>
       </div>

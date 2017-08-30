@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import '../../assets/styles/find/find.styl'
-import TopControl from '../../components/top/TopControl'
+import Header from '../../components/top/Header'
 import Main from './Main'
 import Footer from '../index/Footer'
 class FindControl extends Component {
   render () {
     return (
       <div className='wrap'>
-        <TopControl />
+        <Header />
         <Main />
         <div className='bottom'>
           <Footer />

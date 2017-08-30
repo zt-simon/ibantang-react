@@ -4,6 +4,9 @@
 import React, {Component} from 'react'
 import '../../assets/styles/article/article.styl'
 class Addproduct extends Component {
+  static propTypes = {
+    handleVal: React.PropTypes.func
+  }
   constructor (props) {
     super(props)
     this.state = {
@@ -13,6 +16,13 @@ class Addproduct extends Component {
       content: '',
       title: ''
     }
+  }
+  getVal = () => {
+    let val = document.getElementsByClassName('product-pic-s')[0].src
+    console.log(val)
+    let inner = document.getElementsByClassName('product-description-s')[0].innerHTML
+    console.log(inner)
+    this.props.handleVal(val, inner)
   }
   add = (e) => {
     this.setState({
@@ -83,7 +93,7 @@ class Addproduct extends Component {
     }
     return (
       <div className="add-product-out">
-        <p className="add-product-out-s">添加商品</p>
+        <p className="add-product-out-s" onClick={this.getVal}>添加商品</p>
         <div className="brand-out">
           <input value={this.state.brandName} onChange={this.add} className="brand-s" type="text" placeholder="品牌" />
           <input value={this.state.title} onChange={this.changeValue} className="brand-name-s" type="text" placeholder="商品名" />

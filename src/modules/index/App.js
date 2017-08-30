@@ -5,7 +5,7 @@ import '../../assets/styles/find/find.styl'
 import '../../assets/styles/host/content.styl'
 import Footer from '../../components/index/Footer'
 import SlideShow from '../../components/index/Slideshow'
-import TopControl from '../../components/top/TopControl'
+import TopControl from '../../components/top/Header'
 import Content from '../../components/index/Content'
 import Clickme from '../../components/article/Clickme'
 class App extends Component {
