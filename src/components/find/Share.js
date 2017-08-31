@@ -64,7 +64,9 @@ class Share extends Component {
       )
     })
     return (
-      <div>{shareArr}</div>
+      <div>
+        {shareArr}
+      </div>
     )
   }
 }
