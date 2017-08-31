@@ -1,6 +1,8 @@
 *
  margin 0
  padding 0
+.about-wrap
+  width 100%
 .about-slideShow
   width 100%
   height 520px
@@ -10,6 +12,7 @@
   padding-top 60px
   width 960px
   margin auto
+  //border 1px solid black
 .about-section h4
   //border 1px solid black
   font-size 24px
@@ -39,6 +42,12 @@
 .about-better
   position relative
   padding 30px 0
+  width 960px
+  height 525px
+  //border 1px solid red
+.about-betterImg
+  width 100%
+  height 100%
 .about-base
   width 720px
   list-style none
@@ -128,7 +137,7 @@
   width 960px
   height 668px
   //border 1px solid black
-  margin auto
+  margin 20px auto
   overflow hidden
 .about-joinLeftVertical
   float left
@@ -145,16 +154,31 @@
   margin-bottom 30px
 .about-joinContent i
   display inline-block
-  background url("../../images/Z-040.jpg") no-repeat
-  background-size 80px 80px
   width 80px
   height 80px
-  border 1px solid red
-  //background-color black
-  //opacity 0.5
+  border 1px solid #74787c
+  border-radius 50%
   position absolute
   top 0
   left 0
+.about-editor
+  background url("../../images/Z-add.png") no-repeat 0 0
+  background-size 406px 250px
+.about-club
+  background url("../../images/Z-add.png") no-repeat 0 -80px
+  background-size 406px 250px
+.about-manager
+  background url("../../images/Z-add.png") no-repeat 0 -160px
+  background-size 406px 250px
+.about-media
+  background url("../../images/Z-add.png") no-repeat -80px 0
+  background-size 406px 250px
+.about-design
+  background url("../../images/Z-add.png") no-repeat -80px -80px
+  background-size 406px 250px
+.about-engineer
+  background url("../../images/Z-add.png") no-repeat -80px -160px
+  background-size 406px 250px
 .about-joinTitle
   width 360px
   height 14px
@@ -199,10 +223,12 @@
 .about-emailArea
   width 960px
   margin auto
+  overflow hidden
 .about-add
   width 400px
   height 200px
-  border 1px solid black
+  float left
+  margin 60px 30px 30px
 .about-addTitle
   width 400px
   height 30px
@@ -219,10 +245,29 @@
   font-weight lighter
 .about-addImg
   display block
-  border 1px solid black
+  margin auto
+  background: url('../../images/Z-add.png') no-repeat -160px 0;
+  background-size 406px 250px
+  width 122px
+  height 120px
+.about-business
+  display block
   margin auto
   background: url('../../images/Z-add.png') no-repeat -283px 0;
   background-size 406px 250px
   width 122px
   height 120px
-  text-indent -9999px
+.about-userFeedback
+  display block
+  margin auto
+  background: url('../../images/Z-add.png') no-repeat -160px -120px;
+  background-size 406px 250px
+  width 122px
+  height 120px
+.about-contribute
+  display block
+  margin auto
+  background: url('../../images/Z-add.png') no-repeat -283px -121px;
+  background-size 406px 250px
+  width 122px
+  height 120px

@@ -24,13 +24,13 @@ class Search extends Component {
       })
   }
   render () {
-    const dataArr = this.state.data.map(function (item, index) {
-      return (
-        <div>
-          <div></div>
-        </div>
-      )
-    })
+    // const dataArr = this.state.data.map(function (item, index) {
+    //   return (
+    //     <div>
+    //       <div></div>
+    //     </div>
+    //   )
+    // })
     return (
       <div className='myWrap'>
         <Header />
