@@ -55,7 +55,12 @@ class Article extends Component {
     }
   }
   removeDiv = (ev) => {
-    ev.target.parentNode.remove()
+    let tell = confirm('确定要删除该商品么?')
+    if (tell) {
+      ev.target.parentNode.remove()
+    } else {
+      return false
+    }
   }
   hoverChange = (e) => {
     let targ = e.target.getAttribute('name')
@@ -107,6 +112,13 @@ class Article extends Component {
   componentDidMount () {
     window.addEventListener('keydown', this.onkeydown)
   }
+  alertTitle = () => {
+    let valueTitle = document.getElementsByClassName('article-title-s')[0].value
+    console.log(valueTitle)
+    if (valueTitle === '') {
+      alert('请输入标题')
+    }
+  }
   render () {
     let arrBig = []
     if (innerTextArr.length > 0) {
@@ -143,8 +155,8 @@ class Article extends Component {
         <div className='out'>
           <div className='inside clear'>
             <span className='left color'>原创文章</span>
-            <a href='#' className='right font-size display'>发布</a>
-            <a href='#' className='right display-a font-size'>预览</a>
+            <a href='#' className='right font-size display' onClick={this.alertTitle}>发布</a>
+            <a href='#' className='right display-a font-size' onClick={this.alertTitle}>预览</a>
             <a href='#' className='right display-a font-size' onClick={this.click}>保存</a>
           </div>
         </div>
