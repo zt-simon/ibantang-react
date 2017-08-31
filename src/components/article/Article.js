@@ -6,25 +6,16 @@ let flag = false
 let valArr = []
 let innerTextArr = []
 class Article extends Component {
-  // static propTypes = {
-  //   getVal: React.PropTypes.func
-  // }
   constructor (porps) {
     super(porps)
     this.state = {
       display: 'none',
-      displayAdd: 'none',
-      value: '',
-      innerText: ''
+      displayAdd: 'none'
     }
   }
   handleVal = (val, inner) => {
-    this.setState({
-      value: val,
-      innerText: inner
-    })
-    valArr.push(this.state.value)
-    innerTextArr.push(this.state.innerText)
+    valArr.push(val)
+    innerTextArr.push(inner)
   }
   click = () => {
     flag = !flag
@@ -50,24 +41,91 @@ class Article extends Component {
   }
   clickget = () => {
     this.refs.getAdd.getVal()
-    console.log(this.state.innerText)
     this.setState({
       displayAdd: 'none'
     })
-    console.log(valArr)
-    console.log(innerTextArr)
+  }
+  onkeydown = (ev) => {
+    if (ev.keyCode === 13 && this.state.displayAdd === 'block') {
+      console.log(ev.keyCode)
+      this.refs.getAdd.getVal()
+      this.setState({
+        displayAdd: 'none'
+      })
+    }
   }
   removeDiv = (ev) => {
     ev.target.parentNode.remove()
   }
+  hoverChange = (e) => {
+    let targ = e.target.getAttribute('name')
+    let num = e.target.parentNode
+    let iArr = num.getElementsByTagName('i')
+    for (var j = 0; j <= targ; j++) {
+      iArr[j].className = 'star-down-s'
+    }
+    var b = num.nextSibling
+    b.innerHTML = (parseInt(targ) + 1) * 2
+  }
+  hoverOut = (e) => {
+    let states = e.target.parentNode
+    let sta = states.getAttribute('content')
+    // console.log(sta)
+    if (sta === '2') {
+      let iscorea = e.target.parentNode.nextSibling
+      let iscoreb = e.target.parentNode
+      let iscorec = iscoreb.getAttribute('itemID')
+      iscorea.innerHTML = (parseInt(iscorec) + 1) * 2
+      let iArr = iscoreb.getElementsByTagName('i')
+      for (var n = 0; n < iArr.length; n++) {
+        iArr[n].className = 'star-s'
+      }
+      for (var m = 0; m <= iscorec; m++) {
+        iArr[m].className = 'star-down-s'
+      }
+    }
+    if (sta === '1') {
+      let iscore = e.target.parentNode.nextSibling
+      iscore.innerHTML = 0
+      let iarr = e.target.parentNode
+      let iArr = iarr.getElementsByTagName('i')
+      for (var k = 0; k < iArr.length; k++) {
+        iArr[k].className = 'star-s'
+      }
+    }
+  }
+  changeScore = (e) => {
+    let iarr = e.target.parentNode
+    iarr.setAttribute('content', '2')
+    let iArr = iarr.getElementsByTagName('i')
+    let targ = e.target.getAttribute('name')
+    iarr.setAttribute('itemID', targ)
+    for (var i = 0; i <= targ; i++) {
+      iArr[i].className = 'star-down-s'
+    }
+  }
+  componentDidMount () {
+    window.addEventListener('keydown', this.onkeydown)
+  }
   render () {
     let arrBig = []
-    if (innerTextArr.length > 1) {
-      for (var i = 1; i < innerTextArr.length; i++) {
-        // console.log('1')
+    if (innerTextArr.length > 0) {
+      for (var i = 0; i < innerTextArr.length; i++) {
         arrBig.push(
           <div className="arr-all-d-s">
-            <img src={valArr[i]} alt="" className="add-pic-s" /><span>{innerTextArr[i]}</span>
+            <img src={valArr[i]} alt="" className="add-pic-s" /><span className="inner-s">{innerTextArr[i]}</span>
+            <div className="star-out-s">
+              <div className="styl-span-s">你的评分</div>
+              <br />
+              <div name={i} content={'1'} className="position-s">
+                <i onMouseOut={this.hoverOut} onClick={this.changeScore} onMouseOver={this.hoverChange} name={0} className="star-s" />
+                <i onMouseOut={this.hoverOut} onClick={this.changeScore} onMouseOver={this.hoverChange} name={1} className="star-s" />
+                <i onMouseOut={this.hoverOut} onClick={this.changeScore} onMouseOver={this.hoverChange} name={2} className="star-s" />
+                <i onClick={this.changeScore} onMouseOut={this.hoverOut} onMouseOver={this.hoverChange} name={3} className="star-s" />
+                <i onMouseOut={this.hoverOut} onClick={this.changeScore} onMouseOver={this.hoverChange} name={4} className="star-s" />
+              </div>
+              <div className="score-s">0</div>
+            </div>
             <div className="remove-X-s" onClick={this.removeDiv}>X</div>
           </div>
         )
