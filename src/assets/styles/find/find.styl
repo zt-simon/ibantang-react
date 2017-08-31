@@ -9,9 +9,7 @@ body, html
 
 .wrap
   width 100%
-  height 100%
   position relative
-
 
 .hover
   width 100%
@@ -130,17 +128,23 @@ i
 
 .main
   width 960px
-  height 1000px
   margin 100px auto
-  position relative
+
+.main:after
+  content ""
+  display block
+  clear both
+  visibility hidden
 
 .main_left
   width 160px
-  height 200px
-  position fixed
+  float left
 
 .main_left ul
   list-style none
+  position fixed
+  left 160px
+  top 100px
 
 .main_left ul li
   width 160px
@@ -157,9 +161,8 @@ i
 
 .main_right
   width 780px
-  margin-left 20px
-  position absolute
-  right 0
+  margin-left 180px
+  float left
 
 .article
   width 770px
@@ -239,7 +242,8 @@ i
 
 .share:hover
   transform scale(1.02)
-  transition all 0.8s
+  transition all 0.5s
+  box-shadow 0 5px 5px #DADADA
 
 .share_img
   width 230px
@@ -292,13 +296,13 @@ i
   overflow hidden
   text-overflow ellipsis
   white-space normal
-  color #000
+  color #666666
 .bottom
   width 100%
-  position fixed
+  position: absolute
   bottom 0
   left 0
-  display none
+
 .my
   width 100px
   height 100px

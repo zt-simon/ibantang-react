@@ -48,8 +48,8 @@ class Article extends Component {
   render () {
     const descArr = this.state.data.map(function (item, index) {
       return (
-        <a href='#' title={item.title}>
-          <div key={item.id} className='article'>
+        <a href='#' title={item.title} key={item.id} >
+          <div className='article'>
             <div className='article_img'>
               <img src={item.pics[0]['url']} />
             </div>

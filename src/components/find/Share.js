@@ -42,9 +42,24 @@ class Share extends Component {
       })
     document.body.onscroll = this.scroll
   }
+  rule = (string) => {
+    var arr = []
+    if (string.length > 35) {
+      for (let i = 0; i < string.length; i++) {
+        arr.push(string[i])
+        if (i > 35) {
+          return (arr + '...').split(',')
+        }
+      }
+    } else {
+      return string
+    }
+  }
   render () {
-    const shareArr = this.state.data.map(function (item, index) {
-      return (
+    var shareArr = []
+    for (let i = 0; i < this.state.data.length; i++) {
+      let item = this.state.data[i]
+      shareArr.push(
         <a href='#' title={item.UserProfile.nickname}>
           <div className='share' key={item.id}>
             <div className='share_img'>
@@ -53,16 +68,19 @@ class Share extends Component {
             <div className='share_main'>
               <div className='share_user'>
                 <div className='share_rad' style={{background: 'url(' + item.UserProfile.avatar + ')'}} />
-                <div className='share_nickname'>{item.UserProfile.nickname}</div>
-                <span className='share_span'><img src={require('../../assets/images/likes.png')} /><span>{item.likes}</span>
+                <div className='share_nickname'>{item.UserProfile.nickname}
+                </div>
+                <span className='share_span'>
+                  <img src={require('../../assets/images/likes.png')} />
+                  <span>{item.likes}</span>
                 </span>
               </div>
-              <div className='share_title'>{item.content}</div>
+              <div className='share_title'>{this.rule(item.content)}</div>
             </div>
           </div>
         </a>
       )
-    })
+    }
     return (
       <div>
         {shareArr}
