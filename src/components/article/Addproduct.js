@@ -3,6 +3,8 @@
  */
 import React, {Component} from 'react'
 import '../../assets/styles/article/article.styl'
+let a = ''
+let b = ''
 class Addproduct extends Component {
   static propTypes = {
     handleVal: React.PropTypes.func
@@ -16,13 +18,6 @@ class Addproduct extends Component {
       content: '',
       title: ''
     }
-  }
-  getVal = () => {
-    let val = document.getElementsByClassName('product-pic-s')[0].src
-    console.log(val)
-    let inner = document.getElementsByClassName('product-description-s')[0].innerHTML
-    console.log(inner)
-    this.props.handleVal(val, inner)
   }
   add = (e) => {
     this.setState({
@@ -51,10 +46,12 @@ class Addproduct extends Component {
     })
   }
   clickProduct = (e) => {
+    a = e.target.getAttribute('data')
+    console.log(a)
+    b = e.target.innerHTML
     let brandId = e.target.getAttribute('name')
     let content = e.target.getAttribute('content')
     let itemIDn = e.target.getAttribute('itemID')
-    console.log(brandId)
     fetch(`/api/article/searchBrandProduct?q=${content}&brandId=${brandId}&page=0&pagesize=100`, {
       method: 'GET'
     })
@@ -77,23 +74,23 @@ class Addproduct extends Component {
     for (var i = 0; i < this.state.data.length; i++) {
       if (this.state.data[i].brand) {
         arrayProduct.push(
-          <div itemID={this.state.data[i].title} name={this.state.data[i].brand.id} content={this.state.data[i].brand.name} onClick={this.clickProduct} className="product-description-out-s clear">
-            <img itemID={this.state.data[i].title} name={this.state.data[i].brand.id} content={this.state.data[i].brand.name} src={this.state.data[i].pic} className="product-pic-s left" />
-            <div itemID={this.state.data[i].title} name={this.state.data[i].brand.id} content={this.state.data[i].brand.name} className="product-description-s left">{this.state.data[i].title}</div>
+          <div data={this.state.data[i].pic} itemID={this.state.data[i].title} name={this.state.data[i].brand.id} content={this.state.data[i].brand.name} onClick={this.clickProduct} className="product-description-out-s clear">
+            <img data={this.state.data[i].pic} itemID={this.state.data[i].title} name={this.state.data[i].brand.id} content={this.state.data[i].brand.name} src={this.state.data[i].pic} className="product-pic-s left" />
+            <div data={this.state.data[i].pic} itemID={this.state.data[i].title} name={this.state.data[i].brand.id} content={this.state.data[i].brand.name} className="product-description-s left">{this.state.data[i].title}</div>
           </div>
           )
       } else {
         arrayProduct.push(
-          <div name={this.state.data[i].id} content={this.state.data[i].name} onClick={this.clickProduct} className="product-description-out-s clear">
-            <img name={this.state.data[i].id} content={this.state.data[i].name} src={this.state.data[i].pic} className="product-pic-s left" />
-            <div name={this.state.data[i].id} content={this.state.data[i].name} className="product-description-s left">{this.state.data[i].name}</div>
+          <div data={this.state.data[i].pic} name={this.state.data[i].id} content={this.state.data[i].name} onClick={this.clickProduct} className="product-description-out-s clear">
+            <img data={this.state.data[i].pic} name={this.state.data[i].id} content={this.state.data[i].name} src={this.state.data[i].pic} className="product-pic-s left" />
+            <div data={this.state.data[i].pic} name={this.state.data[i].id} content={this.state.data[i].name} className="product-description-s left">{this.state.data[i].name}</div>
           </div>
           )
       }
     }
     return (
       <div className="add-product-out">
-        <p className="add-product-out-s" onClick={this.getVal}>添加商品</p>
+        <p className="add-product-out-s">添加商品</p>
         <div className="brand-out">
           <input value={this.state.brandName} onChange={this.add} className="brand-s" type="text" placeholder="品牌" />
           <input value={this.state.title} onChange={this.changeValue} className="brand-name-s" type="text" placeholder="商品名" />
@@ -103,6 +100,13 @@ class Addproduct extends Component {
         </div>
       </div>
     )
+  }
+  getVal = () => {
+    let val = a
+    console.log(val)
+    let inner = b
+    console.log(inner)
+    this.props.handleVal(val, inner)
   }
 }
 export default Addproduct

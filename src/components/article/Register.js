@@ -47,7 +47,7 @@ class Register extends Component {
           <br />
           <div className='register-user-s' onClick={this.changeDisplay}>注册</div>
           <div className="clear comm-s">
-            <div className="line left" /> <span style={{color: '#787878', fontSize: '14px'}}>社交账号快速登录</span> <div className="right line" />
+            <div className="line-left left" /> <span style={{color: '#787878', fontSize: '14px'}}>社交账号快速登录</span> <div className="right line-right" />
           </div>
           <div className="img-s-out clear">
             <div className="mg-weibo-s-out left">
