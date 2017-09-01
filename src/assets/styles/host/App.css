@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: '';
+}
+h1 {
+  color: #f00;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+}
+img {
+  width: 200px;
+  height: 200px;
+}
+.footer-wrap {
+  width: 100%;
+  background-color: #434446;
+}
+.footer {
+  width: 100%;
+  min-width: 1030px;
+  max-width: 1440px;
+  margin: auto;
+}
+.address {
+  width: 100%;
+  min-width: 1030px;
+  background-color: #38383a;
+  color: #bfbfbf;
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.footer:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+.footer-line {
+  border-left: 1px solid #fff;
+  margin: 30px 40px;
+  float: left;
+  height: 100px;
+  padding: 0;
+}
+.footer-line p {
+  margin-left: 10px;
+  padding: 0px 0px 15px 0px;
+  line-height: 12px;
+}
+.footer-line p a {
+  color: #bfbfbf;
+  text-decoration: none;
+  font-size: 12px;
+}
+.footer .firstline {
+  margin-left: 40px;
+}
+.footer-line .footer-firstline-last {
+  padding-bottom: 0px;
+}
+.secondline {
+  position: relative;
+}
+.footer-secondCode {
+  width: 150px;
+  height: 150px;
+  background: url("../../images/code.jpg") no-repeat 0% 0%;
+  background-size: 150px 150px;
+  position: absolute;
+  top: -70px;
+  left: -20px;
+}
+.icons-weibo {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../../images/weibo.png") no-repeat 0% 0%;
+  background-size: 20px 20px;
+}
+.icons-weixin {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../../images/weixin.png") no-repeat 0% 0%;
+  background-size: 20px 20px;
+  margin-left: 5px;
+}
+.thirdline {
+  padding: 0px;
+  width: 460px;
+  overflow: hidden;
+  position: relative;
+}
+.footer-link {
+  padding: 0px;
+  margin: 0 10px;
+}
+.footer-link a {
+  color: #bfbfbf;
+  font-size: 12px;
+  text-decoration: none;
+  margin: 0;
+}
+.footer-linkContent {
+  margin-left: 10px;
+}
+.footer-linkContent a {
+  display: inline-block;
+  color: #666;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 9px 18px 0px 0px;
+}
+.footer-spread {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  color: #666;
+  font-size: 12px;
+}
+.footer-rightline {
+  width: 300px;
+  height: 100px;
+  float: right;
+  margin: 30px 40px 0 0;
+}
+.footer-rightword {
+  width: 180px;
+  height: 100px;
+  text-align: right;
+  float: left;
+}
+.footer-rightword div {
+  margin-top: 7px;
+}
+.footer-logo {
+  width: 62px;
+  height: 32px;
+  background: url("../../images/bantang.png") no-repeat 0px 0px;
+  background-size: 62px 32px;
+  margin-left: 120px;
+}
+.footer-code {
+  float: left;
+  margin-left: 15px;
+}
+.code-logo {
+  width: 100px;
+  height: 100px;
+}
+.footer-word {
+  color: #fff;
+  font-weight: lighter;
+}
+.footer-shareClub {
+  color: #fff;
+  font-weight: lighter;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.click {
+  position: fixed;
+  top: 50%;
+  right: 0%;
+  z-index: 10;
+}
+.scrollTop {
+  position: fixed;
+  bottom: 210px;
+  left: 50%;
+  margin-left: 515px;
+}
+.footer-region {
+  font-size: 12px;
+  color: #bfbfbf;
+}
