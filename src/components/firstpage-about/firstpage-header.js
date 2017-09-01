@@ -68,7 +68,7 @@ class Aboutheader extends Component {
       <div className='about-wrapper' style={{backgroundColor: this.state.color}}>
         <div className='about-header'>
           <div className='about-left'>
-            <div className={this.state.class} />
+            <a href='index.html'><div className={this.state.class} /></a>
             <div><a href='index.html' style={{color: this.state.wordColor}}>首页</a></div>
             <div><a href='find.html' style={{color: this.state.wordColor}}>发现</a></div>
             <div><a href='#' style={{color: this.state.wordColor}}>好物</a></div>
