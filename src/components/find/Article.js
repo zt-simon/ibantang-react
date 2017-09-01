@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+// import '../../assets/styles/find/find.styl'
+
 var num = 1
 class Article extends Component {
   constructor (props) {
