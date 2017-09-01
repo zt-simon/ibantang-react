@@ -47,7 +47,6 @@ class Addproduct extends Component {
   }
   clickProduct = (e) => {
     a = e.target.getAttribute('data')
-    console.log(a)
     b = e.target.innerHTML
     let brandId = e.target.getAttribute('name')
     let content = e.target.getAttribute('content')
@@ -74,14 +73,14 @@ class Addproduct extends Component {
     for (var i = 0; i < this.state.data.length; i++) {
       if (this.state.data[i].brand) {
         arrayProduct.push(
-          <div data={this.state.data[i].pic} itemID={this.state.data[i].title} name={this.state.data[i].brand.id} content={this.state.data[i].brand.name} onClick={this.clickProduct} className="product-description-out-s clear">
+          <div data={this.state.data[i].pic} itemID={this.state.data[i].title} name={this.state.data[i].brand.id} content={this.state.data[i].brand.name} onClick={this.clickProduct} className="product-description-out-s clear" key={this.state.data[i].item_id}>
             <img data={this.state.data[i].pic} itemID={this.state.data[i].title} name={this.state.data[i].brand.id} content={this.state.data[i].brand.name} src={this.state.data[i].pic} className="product-pic-s left" />
             <div data={this.state.data[i].pic} itemID={this.state.data[i].title} name={this.state.data[i].brand.id} content={this.state.data[i].brand.name} className="product-description-s left">{this.state.data[i].title}</div>
           </div>
           )
       } else {
         arrayProduct.push(
-          <div data={this.state.data[i].pic} name={this.state.data[i].id} content={this.state.data[i].name} onClick={this.clickProduct} className="product-description-out-s clear">
+          <div data={this.state.data[i].pic} name={this.state.data[i].id} content={this.state.data[i].name} onClick={this.clickProduct} className="product-description-out-s clear" key={this.state.data[i].id}>
             <img data={this.state.data[i].pic} name={this.state.data[i].id} content={this.state.data[i].name} src={this.state.data[i].pic} className="product-pic-s left" />
             <div data={this.state.data[i].pic} name={this.state.data[i].id} content={this.state.data[i].name} className="product-description-s left">{this.state.data[i].name}</div>
           </div>
@@ -105,7 +104,6 @@ class Addproduct extends Component {
     let val = a
     console.log(val)
     let inner = b
-    console.log(inner)
     this.props.handleVal(val, inner)
   }
 }

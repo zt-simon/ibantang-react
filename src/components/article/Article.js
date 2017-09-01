@@ -124,7 +124,7 @@ class Article extends Component {
     if (innerTextArr.length > 0) {
       for (var i = 0; i < innerTextArr.length; i++) {
         arrBig.push(
-          <div className="arr-all-d-s">
+          <div key={i} className="arr-all-d-s">
             <img src={valArr[i]} alt="" className="add-pic-s" /><span className="inner-s">{innerTextArr[i]}</span>
             <div className="star-out-s">
               <div className="styl-span-s">你的评分</div>
