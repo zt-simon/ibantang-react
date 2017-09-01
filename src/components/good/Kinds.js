@@ -188,11 +188,10 @@ class Kinds extends Component {
     super(props)
     this.state = {
       data: [],
-      kind: '14'
     }
   }
   componentDidMount () {
-    fetch(`/api/g/getProductList?id=${this.state.kind}&sort = 0& load = 1&page = 0& pagesize = 20`, {
+    fetch(`/api/g/getProductList?id=14&sort = 0& load = 1&page = 0& pagesize = 20`, {
       method: 'GET'
     })
       .then(response => {
@@ -204,7 +203,7 @@ class Kinds extends Component {
          })
        })
   }
-  changekind = (id, pageNum) => {
+  changekind = (id) => {
     fetch(`/api/g/getProductList?id=${id}&sort = 0 &page = 0& pagesize = 20`, {
       method: 'GET'
     })
@@ -217,6 +216,32 @@ class Kinds extends Component {
           })
         })
   }
+  changekinds = (id) => {
+    fetch(`/api/g/getPostList?id=${id}&sort = 0 &page = 0& pagesize = 20`, {
+      method: 'GET'
+    })
+      .then(response => {
+        return response.json()
+      })
+        .then(response => {
+          this.setState({
+            data: response.data.product
+          })
+        })
+  }
+  changekindt = (id) => {
+    fetch(`/api/g/getTopicList?id=${id}&sort = 0 &page = 0& pagesize = 20`, {
+      method: 'GET'
+    })
+      .then(response => {
+        return response.json()
+      })
+      .then(response => {
+        this.setState({
+          data: response.data.product
+        })
+      })
+  }
   chooseKind = (name) => {
     for (let i = 0; i < fArrid.length; i++) {
       if (parseInt(name) === fArrid[i]) {
@@ -225,6 +250,8 @@ class Kinds extends Component {
         secnameArr = firbothArr[i]
       }
     }
+    thinameArr = []
+    thinameArrid = []
   }
   changeIDf = (e) => {
     let name = e.target.getAttribute('name')
@@ -239,12 +266,17 @@ class Kinds extends Component {
           if (parseInt(name) === secnameArrid[i]) {
             thinameArr = bothsecArr[j][i]
             thinameArrid = bothsecArrid[j][i]
-            console.log(bothsecArrid[j][i])
-            console.log(bothsecArr[j][i])
           }
         }
       }
     }
+    this.changekinds(name)
+  }
+  changeIDt = (e) => {
+    let name = e.target.getAttribute('name')
+    this.changekindt(name)
+    console.log(name)
+    // console.log(this.state.data)
   }
   render () {
     let arr1 = []
@@ -259,7 +291,7 @@ class Kinds extends Component {
     let arr3 = []
     arr3.push(<span className="kinds_second_level_topic">{thinameArr[0]}</span>)
     for (let i = 1; i < thinameArr.length; i++) {
-      arr3.push(<a href="###" name={thinameArrid[i]}>{thinameArr[i]}</a>)
+      arr3.push(<a href="###" name={thinameArrid[i - 1]} onClick={this.changeIDt}>{thinameArr[i]}</a>)
     }
     return (
       <div>
@@ -273,7 +305,7 @@ class Kinds extends Component {
         </div>
         <div className="kinds_second_level">
           <div className="secondlevel">
-              abc
+            {arr3}
           </div>
         </div>
       </div>
