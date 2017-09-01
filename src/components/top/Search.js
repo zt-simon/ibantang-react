@@ -253,16 +253,18 @@ class Search extends Component {
               <div className='search_menu_left_div' onClick={this.shareClick}>晒单</div>
               <div className='search_menu_left_div' onClick={this.titleClick}>文章</div>
             </div>
-            <div className='search_menu_right'>
-              <div className='paiH' onClick={this.moRen} style={{color: 'red'}}>●默认</div>
-              <div className='paiH' onClick={this.wel}>最受欢迎</div>
-              <div className='paiH' onClick={this.below}>价格由低到高</div>
-              <div className='paiH' onClick={this.gao}>价格由高到低</div>
-            </div>
-            <div className='search_menu_right_new'>
-              <div className='paiH' onClick={this.newMoRen} style={{color: 'red'}}>●默认</div>
-              <div className='paiH' onClick={this.newWel}>最受欢迎</div>
-              <div className='paiH' onClick={this.newS} >最新</div>
+            <div className='box_right_left'>
+              <div className='search_menu_right'>
+                <div className='paiH' onClick={this.moRen} style={{color: 'red'}}>●默认</div>
+                <div className='paiH' onClick={this.wel}>最受欢迎</div>
+                <div className='paiH' onClick={this.below}>价格由低到高</div>
+                <div className='paiH' onClick={this.gao}>价格由高到低</div>
+              </div>
+              <div className='search_menu_right_new'>
+                <div className='paiH' onClick={this.newMoRen} style={{color: 'red'}}>●默认</div>
+                <div className='paiH' onClick={this.newWel}>最受欢迎</div>
+                <div className='paiH' onClick={this.newS} >最新</div>
+              </div>
             </div>
           </div>
           <div className='search_main'>{dataArr}</div>

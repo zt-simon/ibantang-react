@@ -66,7 +66,7 @@ class Footer extends Component {
           </div>
         </div>
         <div className='address'>
-          地址：北京市东城区箭厂胡同 · 京ICP备14040010号-5 · 半糖 · 发现值得买的好东西
+          京ICP备14040010号-5
         </div>
       </div>
     )
