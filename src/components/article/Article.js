@@ -30,6 +30,7 @@ class Article extends Component {
     }
   }
   clickAdd = () => {
+    this.refs.getAdd.removeValue()
     this.setState({
       displayAdd: 'block'
     })

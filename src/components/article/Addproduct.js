@@ -36,7 +36,7 @@ class Addproduct extends Component {
             this.setState({
               data: response.data
             })
-            console.log(response.data)
+            // console.log(response.data)
           })
     }
   }
@@ -65,8 +65,13 @@ class Addproduct extends Component {
               data: response.data,
               brandName: response.data[0].brand.name
             })
-            console.log(response.data)
+            // console.log(response.data[0].brand.name)
           })
+  }
+  removeValue = () => {
+    this.setState({
+      brandName: ''
+    })
   }
   render () {
     let arrayProduct = []
@@ -91,8 +96,8 @@ class Addproduct extends Component {
       <div className="add-product-out">
         <p className="add-product-out-s">添加商品</p>
         <div className="brand-out">
-          <input value={this.state.brandName} onChange={this.add} className="brand-s" type="text" placeholder="品牌" />
-          <input value={this.state.title} onChange={this.changeValue} className="brand-name-s" type="text" placeholder="商品名" />
+          <input value={this.state.brandName || ''} onChange={this.add} className="brand-s" type="text" placeholder="品牌" />
+          <input value={this.state.title || ''} onChange={this.changeValue} className="brand-name-s" type="text" placeholder="商品名" />
         </div>
         <div className="product-list-s">
           {arrayProduct}
@@ -102,7 +107,6 @@ class Addproduct extends Component {
   }
   getVal = () => {
     let val = a
-    console.log(val)
     let inner = b
     this.props.handleVal(val, inner)
   }
