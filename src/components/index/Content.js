@@ -4,7 +4,6 @@ let typeArray = ['topic_main', 'topic_hot_list', 'topic_list_by_attribute', 'top
 let extendArray = ['', '', '21', '11', '3', '20', '13', '2', '12', '23', '9', '14', '1', '26']
 let page = 30
 let pageLength = 0
-// let id = null
 class Content extends Component {
   constructor (props) {
     super(props)
@@ -100,6 +99,7 @@ class Content extends Component {
     e.target.style.fontWeight = 'lighter'
     page = 30
     let name = e.target.getAttribute('name')
+    console.log(typeArray[name])
     this.setState({
       type: typeArray[name],
       extend: extendArray[name],
@@ -108,7 +108,7 @@ class Content extends Component {
     this.detail(typeArray[name], extendArray[name], page)
   }
   moreClick = () => {
-    var oMore = document.getElementById('content-checkMore')
+    let oMore = document.getElementById('content-checkMore')
     page = page + 30
     this.detail(this.state.type, this.state.extend, page)
     console.log(pageLength)
