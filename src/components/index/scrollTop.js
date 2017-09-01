@@ -4,17 +4,20 @@ class Scroll extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      display: 'none'
+      display: 'none',
+      verticalDistance: '41'
     }
   }
   mouseover = () => {
     this.setState({
-      display: 'block'
+      display: 'block',
+      verticalDistance: '0'
     })
   }
   mouseout = () => {
     this.setState({
-      display: 'none'
+      display: 'none',
+      verticalDistance: '41'
     })
   }
   scrollClick = () => {
@@ -35,7 +38,7 @@ class Scroll extends Component {
     return (
       <div className='scroll-top' onClick={this.scrollClick} onMouseOver={this.mouseover} onMouseOut={this.mouseout}>
         <span className='scroll-logo' />
-        <div className='scroll-word' style={{display: this.state.display}}>返回顶部</div>
+        <div className='scroll-word' style={{top: this.state.verticalDistance + 'px'}}>返回顶部</div>
       </div>
     )
   }

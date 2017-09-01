@@ -48,12 +48,12 @@ class Content extends Component {
     const typeArray = ['最新', '热门', '礼物', '美食', '生活', '设计感', '家居', '数码', '阅读', '学生党', '上班族', '美妆', '护理', '运动户外']
     let topicArr = []
     for (var i = 0; i < typeArray.length; i++) {
-      topicArr.push(<li className='content-type' name={i} onClick={this.click}>{typeArray[i]}</li>)
+      topicArr.push(<li key={i} className='content-type' name={i} onClick={this.click}>{typeArray[i]}</li>)
     }
     const picArray = this.state.data.map(function (item, index) {
       return (
-        <div className='content-first'>
-          <a href={'http://www.ibantang.com/topic/' + item.id + '/'} title={item.title}>
+        <div className='content-first' key={item.id.toString()}>
+          <a href={'http://www.ibantang.com/topic/' + item.id + '/'} title={item.title} target='_Blank'>
             <div className='content-img'>
               <img src={item.pic} className='content-pic' />
             </div>

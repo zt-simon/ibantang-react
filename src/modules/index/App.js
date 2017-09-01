@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import '../../assets/styles/host/App.styl'
 import '../../assets/styles/find/find.styl'
+import '../../assets/styles/host/Slideshow.styl'
 import Footer from '../../components/index/Footer'
 import SlideShow from '../../components/index/Slideshow'
-import TopControl from '../../components/top/Header'
+import Header from '../../components/top/Header'
 import Content from '../../components/index/Content'
 import Clickme from '../../components/article/Clickme'
 import Scroll from '../../components/index/scrollTop'
@@ -29,7 +30,7 @@ class App extends Component {
     return (
       <div onWheel={this.wheelScroll}>
         <div className='header'>
-          <TopControl />
+          <Header />
         </div>
         <SlideShow />
         <div className='click'>
