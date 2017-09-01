@@ -9,7 +9,6 @@ body, html
 
 .wrap
   width 100%
-  height 100%
   position relative
 
 .hover
@@ -26,8 +25,9 @@ body, html
   width 420px
   position fixed
   left 50%
-  top 0
-  margin-left -240px
+  top 50%
+  margin-left -210px
+  margin-top -290px
   z-index 1000
 
 .header
@@ -47,24 +47,19 @@ body, html
   margin-left 10.5%
   margin-top 15px
 
-.header_nav ul
-  list-style none
-
-.header_nav ul li
-  height 44px
-  float left
-
 .logo
   width 47px
   height 24px
   background url('../../images/logo.png') 0 -23px no-repeat
   background-size 47px 47px
   margin-right 36px
+  float left
 
 .header_nav_li
   height 28px
   margin 5px 35px 0 0
   position relative
+  float left
 
 .header_nav_li a
   display inline-block
@@ -81,8 +76,8 @@ i
   width 35px
   height 35px
   position absolute
-  bottom 25px
-  right -30px
+  bottom 5px
+  right -36px
   font-weight lighter
 
 .header_right
@@ -133,17 +128,22 @@ i
 
 .main
   width 960px
-  height 1000px
   margin 100px auto
-  position relative
+
+.main:after
+  content ""
+  display block
+  clear both
+  visibility hidden
 
 .main_left
   width 160px
-  height 200px
-  position fixed
+  float left
+
 
 .main_left ul
   list-style none
+  position fixed
 
 .main_left ul li
   width 160px
@@ -160,9 +160,8 @@ i
 
 .main_right
   width 780px
-  margin-left 20px
-  position absolute
-  right 0
+  margin-left 180px
+  float left
 
 .article
   width 770px
@@ -242,7 +241,8 @@ i
 
 .share:hover
   transform scale(1.02)
-  transition all 0.8s
+  transition all 0.5s
+  box-shadow 0 5px 5px #DADADA
 
 .share_img
   width 230px
@@ -274,7 +274,7 @@ i
   display inline-block
   height 36px
   margin-top 8px
-  margin-left 40px
+  margin-left 20px
   position relative
 
 .share_span img
@@ -295,11 +295,13 @@ i
   overflow hidden
   text-overflow ellipsis
   white-space normal
-  color #000
+  color #666666
 .bottom
   width 100%
-  position fixed
-  bottom 0
-  left 0
-  display none
+  margin-top 100px
+
+.my
+  width 100px
+  height 100px
+  background-color red
 

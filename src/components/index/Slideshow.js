@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import '../../assets/styles/host/Slideshow.styl'
 class SlideShow extends Component {
   constructor (props) {
     super(props)
@@ -24,7 +25,7 @@ class SlideShow extends Component {
             <div className='first-downloadApp' onClick={this.click} />
           </div>
         </div>
-        <div>
+        <div className='download-maskBorder'>
           <div className='download-mask' onClick={this.click1} style={{display: this.state.block}} />
           <div className='app-downloadCode' style={{display: this.state.block}}>
             <div className='mask-leftphone'>
