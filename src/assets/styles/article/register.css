@@ -1,0 +1,145 @@
+.bg-register-s {
+  width: 420px;
+  height: 160px;
+  background: url("../../images/download_z.jpg") no-repeat center;
+  background-size: 420px 160px;
+}
+.register-s {
+  margin-top: 50px;
+  width: 420px;
+  text-align: center;
+}
+.register-input-s {
+  width: 260px;
+  height: 35px;
+  margin: 10px;
+  border-radius: 20px;
+  padding-left: 20px;
+  outline: none;
+  border: 1px solid #d3d3d3;
+}
+.out-s {
+  width: 420px;
+  border-radius: 2px solid width;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.register-submit-s {
+  width: 280px;
+  height: 35px;
+  margin: 10px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  background-color: #ee6a60;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 100;
+}
+.register-submit-s:hover {
+  background-color: #ee7870;
+}
+.register-user-s {
+  font-size: 12px;
+  color: #81aadc;
+  font-weight: 100;
+  cursor: pointer;
+}
+.register-mobile-style {
+  color: #ee7870;
+  font-size: 14px;
+  font-weight: 100;
+}
+.code-s {
+  height: 35px;
+  border-radius: 20px;
+  border: 1px solid #d3d3d3;
+  outline: none;
+  padding-left: 20px;
+  margin-right: 33px;
+}
+.code-get-s {
+  height: 35px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  color: #919191;
+  padding: 10px 20px 30px 20px;
+  background-color: #f5f5f5;
+}
+.line-left {
+  margin-left: 15%;
+  width: 55px;
+  margin-top: 3%;
+  height: 1px;
+  background-color: #d3d3d3;
+}
+.line-right {
+  margin-top: 3%;
+  margin-right: 15%;
+  width: 55px;
+  height: 1px;
+  background-color: #d3d3d3;
+}
+.comm-s {
+  margin-top: 5%;
+  margin-left: 2%;
+  width: 400px;
+}
+.img-s {
+  width: 30px;
+  height: 30px;
+}
+.img-weibo-s {
+  display: inline-block;
+  background: url("../../images/微博-s.png") no-repeat;
+  background-size: 25px 25px;
+  margin-left: 13px;
+}
+.img-wechat-s {
+  display: inline-block;
+  background: url("../../images/QQ (1)-s.png") no-repeat;
+  background-size: 25px 25px;
+  margin-left: 13px;
+}
+.mg-weibo-s-out {
+  width: 50px;
+}
+.img-wechat-s-out {
+  width: 50px;
+}
+.weibo-s {
+  font-size: 14px;
+  color: #919191;
+}
+.qq-s {
+  font-size: 14px;
+  color: #919191;
+}
+.mg-weibo-s-out:hover .img-weibo-s {
+  background: url("../../images/微博 (1)-s.png") no-repeat;
+  background-size: 25px 25px;
+  margin-left: 13px;
+}
+.img-wechat-s-out:hover .img-wechat-s {
+  background: url("../../images/QQ-s.png") no-repeat;
+  background-size: 25px 25px;
+  margin-left: 13px;
+}
+.img-s-out {
+  width: 200px;
+  margin-left: 110px;
+  margin-bottom: 5px;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clear {
+  content: '';
+  display: table;
+  clear: both;
+}
