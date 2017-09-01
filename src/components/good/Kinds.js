@@ -187,7 +187,7 @@ class Kinds extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: [],
+      data: []
     }
   }
   componentDidMount () {
@@ -204,7 +204,7 @@ class Kinds extends Component {
        })
   }
   changekind = (id) => {
-    fetch(`/api/g/getProductList?id=${id}&sort = 0 &page = 0& pagesize = 20`, {
+    fetch(`/api/g/getProductList?id=${id}&sort = 1 &page = 0& pagesize = 20`, {
       method: 'GET'
     })
         .then(response => {
@@ -217,7 +217,7 @@ class Kinds extends Component {
         })
   }
   changekinds = (id) => {
-    fetch(`/api/g/getPostList?id=${id}&sort = 0 &page = 0& pagesize = 20`, {
+    fetch(`/api/g/getPostList?id=${id}&sort = 1 &page = 0& pagesize = 20`, {
       method: 'GET'
     })
       .then(response => {
@@ -230,7 +230,7 @@ class Kinds extends Component {
         })
   }
   changekindt = (id) => {
-    fetch(`/api/g/getTopicList?id=${id}&sort = 0 &page = 0& pagesize = 20`, {
+    fetch(`/api/g/getTopicList?id=${id}&sort = 1 &page = 0& pagesize = 20`, {
       method: 'GET'
     })
       .then(response => {
@@ -275,7 +275,7 @@ class Kinds extends Component {
   changeIDt = (e) => {
     let name = e.target.getAttribute('name')
     this.changekindt(name)
-    console.log(name)
+    // console.log(name)
     // console.log(this.state.data)
   }
   render () {
