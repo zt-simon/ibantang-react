@@ -7,8 +7,7 @@ class Article extends Component {
       data: [],
       page: num
     }
-  }
-  scroll = () => {
+  }scroll = () => {
     if (document.body.scrollTop + document.body.clientHeight === document.body.scrollHeight) {
       num++
       // console.log(this.state.page + '前')
@@ -48,7 +47,7 @@ class Article extends Component {
   render () {
     const descArr = this.state.data.map(function (item, index) {
       return (
-        <a href='#' title={item.title} key={item.id} >
+        <a href='#' title={item.title} key={item.id}>
           <div className='article'>
             <div className='article_img'>
               <img src={item.pics[0]['url']} />
