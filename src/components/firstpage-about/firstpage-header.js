@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import '../../assets/styles/host/firstpage-header.styl'
+import Register from '../article/Register'
 class Aboutheader extends Component {
   constructor (props) {
     super(props)
@@ -14,7 +15,8 @@ class Aboutheader extends Component {
       imgClass: 'about-newImg',
       value: '',
       placeholderColor: 'about-search',
-      inputColor: 'white'
+      inputColor: 'white',
+      hover: 'none'
     }
   }
   focusWid = (e) => {
@@ -60,12 +62,24 @@ class Aboutheader extends Component {
       value: e.target.value
     })
   }
+  click = () => {
+    this.setState({
+      hover: 'block'
+    })
+  }
+  maskClick = () => {
+    this.setState({
+      hover: 'none'
+    })
+  }
   componentDidMount () {
     window.onload = this.wheelChange
   }
   render () {
     return (
       <div className='about-wrapper' style={{backgroundColor: this.state.color}}>
+        <div className='about-register' style={{display: this.state.hover}}><Register /></div>
+        <div className='about-mask' style={{display: this.state.hover}} onClick={this.maskClick} />
         <div className='about-header'>
           <div className='about-left'>
             <a href='index.html'><div className={this.state.class} /></a>
@@ -80,7 +94,7 @@ class Aboutheader extends Component {
               <a href={'search.html?q=' + this.state.value} className={this.state.imgClass} />
               <input type='text' className={this.state.placeholderColor} placeholder='搜索你想要的' onFocus={this.focusWid} onBlur={this.blurWid} style={{width: this.state.wid + 'px', borderColor: this.state.border, color: this.state.inputColor}} onChange={this.inputChange} />
             </div>
-            <div className='about-login' style={{color: this.state.loginColor, backgroundColor: this.state.loginBackColor}}>注册/登录</div>
+            <div className='about-login' style={{color: this.state.loginColor, backgroundColor: this.state.loginBackColor}} onClick={this.click}>注册/登录</div>
           </div>
         </div>
       </div>
