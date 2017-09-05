@@ -36,7 +36,7 @@ const yanbuArr = ['眼部彩妆分类', '眼线笔', '眼线膏/胶', '眼线液
 const yanbuArrid = [127, 128, 129, 130, 131, 132, 554, 582, 548]
 const meibuArr = ['眉部彩妆分类', '眉笔', '眉粉', '染眉膏', '眉部定型']
 const meibuArrid = [123, 124, 125, 553]
-const chunbuArr = ['唇部彩妆分类', '口红', '唇彩/唇蜜', '唇装套装']
+const chunbuArr = ['唇部彩妆分类', '口红', '唇彩/唇蜜', '唇妆套装']
 const chunbuArrid = [141, 142, 549]
 const meijiaArr = ['美甲护甲分类', '指甲油', '指甲贴', '美甲工具', '护甲产品', '卸甲水', '甲油胶', '美甲套装']
 const meijiaArrid = [144, 148, 153, 540, 146, 150, 547]
@@ -178,33 +178,52 @@ const bothdapeiArr = [nvzhuangArr, nanzhuangArr, peishiArr]
 const bothdapeiArrid = [nvzhuangArrid, nanzhuangArrid, peishiArrid]
 const bothsecArr = [bothmeizhuangArr, bothgehuArr, bothshipinArr, bothshenghuoArr, bothshumaArr, bothbangongArr, bothxiebaoArr, bothjiadianArr, bothyundongArr, bothtushuArr, bothdapeiArr]
 const bothsecArrid = [bothmeizhuangArrid, bothgehuArrid, bothshipinArrid, bothshenghuoArrid, bothshumaArrid, bothbangongArrid, bothxiebaoArrid, bothjiadianArrid, bothyundongArrid, bothtushuArrid, bothdapeiArrid]
-var secnameArr = meizhuangArr
-var secnameArrid = meizhuangArrid
-var bt = 14
-var thinameArr = []
-var thinameArrid = []
+let secnameArr = meizhuangArr
+let secnameArrid = meizhuangArrid
+let bt = 14
+let thinameArr = []
+let thinameArrid = []
 class Kinds extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      sort: 0,
+      page: 0,
+      ID: 14,
+      pagesize: 20,
+      method: 'getProductList',
+      more: '点击查看更多精彩'
     }
   }
-  componentDidMount () {
-    fetch(`/api/g/getProductList?id=14&sort = 0& load = 1&page = 0& pagesize = 20`, {
+  requestpx = (method, Id, sort, page, pagesize) => {
+    fetch(`api/g/${method}?id=${Id}&sort=${sort}&page=${page}&pagesize=${pagesize}`, {
       method: 'GET'
     })
       .then(response => {
         return response.json()
       })
-       .then(response => {
-         this.setState({
-           data: response.data.product
-         })
-       })
+      .then(response => {
+        if (this.state.method === 'getProductList') {
+          this.setState({
+            data: response.data.product
+          })
+        } else if (this.state.method === 'getPostList') {
+          this.setState({
+            data: response.data.post
+          })
+        } else if (this.state.method === 'getTopicList') {
+          this.setState({
+            data: response.data.topic
+          })
+        }
+      })
   }
-  changekind = (id) => {
-    fetch(`/api/g/getProductList?id=${id}&sort = 0 &page = 0& pagesize = 20`, {
+  componentDidMount () {
+    this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+  }
+  changekindf = (id) => {
+    fetch(`/api/g/getProductList?id=${id}&sort=0&load=1&page=0&pagesize = 20`, {
       method: 'GET'
     })
         .then(response => {
@@ -212,12 +231,15 @@ class Kinds extends Component {
         })
         .then(response => {
           this.setState({
-            data: response.data.product
+            data: response.data.product,
+            ID: id,
+            more: '点击查看更多精彩',
+            page: 0
           })
         })
   }
   changekinds = (id) => {
-    fetch(`/api/g/getPostList?id=${id}&sort = 0 &page = 0& pagesize = 20`, {
+    fetch(`/api/g/getProductList?id=${id}&sort=0&page=0&pagesize=20`, {
       method: 'GET'
     })
       .then(response => {
@@ -225,12 +247,15 @@ class Kinds extends Component {
       })
         .then(response => {
           this.setState({
-            data: response.data.product
+            data: response.data.product,
+            ID: id,
+            more: '点击查看更多精彩',
+            page: 0
           })
         })
   }
   changekindt = (id) => {
-    fetch(`/api/g/getTopicList?id=${id}&sort = 0 &page = 0& pagesize = 20`, {
+    fetch(`/api/g/getProductList?id=${id}&sort=0&page=0&pagesize = 20`, {
       method: 'GET'
     })
       .then(response => {
@@ -238,7 +263,10 @@ class Kinds extends Component {
       })
       .then(response => {
         this.setState({
-          data: response.data.product
+          data: response.data.product,
+          ID: id,
+          more: '点击查看更多精彩',
+          page: 0
         })
       })
   }
@@ -255,11 +283,14 @@ class Kinds extends Component {
   }
   changeIDf = (e) => {
     let name = e.target.getAttribute('name')
-    this.changekind(name)
+    this.changekindf(name)
     this.chooseKind(name)
+    var level1 = this.refs.level_1
+    console.log(level1)
   }
   changeIDs = (e) => {
     let name = e.target.getAttribute('name')
+    this.changekinds(name)
     for (let j = 0; j < fArrid.length; j++) {
       if (bt === fArrid[j]) {
         for (let i = 0; i < secnameArrid.length; i++) {
@@ -270,29 +301,249 @@ class Kinds extends Component {
         }
       }
     }
-    this.changekinds(name)
   }
   changeIDt = (e) => {
     let name = e.target.getAttribute('name')
     this.changekindt(name)
-    console.log(name)
-    // console.log(this.state.data)
+  }
+  request = (method, ID, sort, page, pagesize) => {
+    fetch(`/api/g/${method}?id=${ID}&sort=${sort}&page=${page}&pagesize=${pagesize}`, {
+      method: 'GET'
+    })
+      .then(response => {
+        return response.json()
+      })
+      .then(response => {
+        if (this.state.method === 'getProductList') {
+          this.setState({
+            data: this.state.data.concat(response.data.product)
+          })
+        } else if (this.state.method === 'getPostList') {
+          this.setState({
+            data: this.state.data.concat(response.data.post)
+          })
+        } else {
+          this.setState({
+            data: this.state.data.concat(response.data.topic)
+          })
+        }
+      })
+  }
+
+  changesort0 = () => {
+    this.setState({
+      sort: 0,
+      page: 0,
+      more: '点击查看更多精彩'
+    }, function () {
+      this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+    })
+  }
+  changesort1 = () => {
+    this.setState({
+      sort: 1,
+      page: 0,
+      more: '点击查看更多精彩'
+    }, function () {
+      this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+    })
+  }
+  changesort2 = () => {
+    this.setState({
+      sort: 2,
+      page: 0,
+      more: '点击查看更多精彩'
+    }, function () {
+      this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+    })
+  }
+  changesort3 = () => {
+    this.setState({
+      sort: 3,
+      page: 0,
+      more: '点击查看更多精彩'
+    }, function () {
+      this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+    })
+  }
+  changesort4 = () => {
+    this.setState({
+      sort: 4,
+      page: 0,
+      more: '点击查看更多精彩'
+    }, function () {
+      this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+    })
+  }
+  requestfl = (method, Id, sort, page, pagesize) => {
+    fetch(`api/g/${method}?id=${Id}&sort=${sort}&page=${page}&pagesize=${pagesize}`, {
+      method: 'GET'
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(response => {
+      if (method === 'getProductList') {
+        this.setState({
+          data: response.data.product
+        })
+      } else if (method === 'getPostList') {
+        this.setState({
+          data: response.data.post
+        })
+      } else if (method === 'getTopicList') {
+        this.setState({
+          data: response.data.topic
+        })
+      }
+    })
+    this.setState({
+      more: '点击查看更多精彩',
+      page: 0
+    })
+  }
+  goods = () => {
+    this.setState({
+      method: 'getProductList',
+      pagesize: 20,
+      data: [],
+      more: '点击查看更多精彩',
+      page: 0
+    }, function () {
+      this.requestfl(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+    })
+  }
+
+  review = () => {
+    this.setState({
+      method: 'getPostList',
+      pagesize: 20,
+      data: [],
+      more: '点击查看更多精彩',
+      page: 0
+    }, () => {
+      this.requestfl(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+    })
+  }
+  article = () => {
+    this.setState({
+      method: 'getTopicList',
+      pagesize: 21,
+      data: [],
+      more: '点击查看更多精彩',
+      page: 0
+    }, function () {
+      this.requestfl(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+    })
+  }
+  addmore = () => {
+    if (this.state.method === 'getTopicList') {
+      this.setState({
+        page: this.state.page + 1,
+        pagesize: 21
+      }, function () {
+        this.request(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+      })
+    } else {
+      this.setState({
+        page: this.state.page + 1,
+        pagesize: 20
+      }, function () {
+        this.request(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
+      })
+    }
+    if (this.state.data.length < (this.state.page + 1) * this.state.pagesize) {
+      this.setState({
+        more: '没有更多了'
+      })
+    }
   }
   render () {
     let arr1 = []
     for (let i = 0; i < kindArr.length; i++) {
-      arr1.push(<a href="###" onClick={this.changeIDf} name={fArrid[i]}>{kindArr[i]}</a>)
+      arr1.push(<div onClick={this.changeIDf} name={fArrid[i]} ref={`level1_${i}`} >{kindArr[i]}</div>)
     }
     let arr2 = []
-    arr2.push(<span className="kinds_second_level_topic">{secnameArr[0]}</span>)
+    arr2.push(<span className="kinds_second_level_topic" >{secnameArr[0] }</span>)
     for (let i = 1; i < secnameArr.length; i++) {
-      arr2.push(<a href="###" name={secnameArrid[i - 1]} onClick={this.changeIDs}>{secnameArr[i]}</a>)
+      arr2.push(<div name={secnameArrid[i - 1]}key={secnameArrid[i - 1]} onClick={this.changeIDs} >{secnameArr[i]}</div>)
     }
     let arr3 = []
-    arr3.push(<span className="kinds_second_level_topic">{thinameArr[0]}</span>)
+    arr3.push(<span className="kinds_second_level_topic " key={thinameArr[0]}>{thinameArr[0]}</span>)
     for (let i = 1; i < thinameArr.length; i++) {
-      arr3.push(<a href="###" name={thinameArrid[i - 1]} onClick={this.changeIDt}>{thinameArr[i]}</a>)
+      arr3.push(<div name={thinameArrid[i - 1]}key={thinameArrid[i - 1]} onClick={this.changeIDt} >{thinameArr[i]}</div>)
     }
+    let content = []
+    let temp = this.state.data
+    let src = null
+    for (let i = 0; i < temp.length; i++) {
+      if (this.state.data.length !== 0 && this.state.data[0].brand !== undefined) {
+        content.push(<a href={`http://www.ibantang.com/product/${temp[i]['id']}`} target="_blank" className="things">
+          <div className="imgDiv"><img src={temp[i]['pic']} className="pic" /></div>
+          <div className="topic">{temp[i]['title']}</div>
+          <div>
+            <span className="price">￥{temp[i]['price']}</span>
+            <img src={require('../../assets/images/goodlike.png')} className="like" />
+            <span className="likes">{temp[i]['likes']}</span>
+          </div>
+        </a>)
+      } else if (this.state.data.length !== 0 && this.state.data[0].dynamic !== undefined) {
+        content.push(<a href={`${temp[i].share_url}`} target="_blank">
+          <div className="shaidandiv">
+            <div className="showDiv">
+              <img src={temp[i].middle_pic_url} />
+            </div>
+            <div className="centerdiv">
+              <img src={temp[i].user.avatar} className="peopleimg" />
+              <span className="nickname">{temp[i].user.nickname}</span>
+              <span className="likeNum">{temp[i].dynamic.likes}</span>
+              <img src={require('../../assets/images/goodlike.png')} className="like2" />
+            </div>
+            <span className="showcontent">{temp[i].content}</span>
+          </div>
+        </a>)
+      } else if (this.state.data.length !== 0 && this.state.data[0].pics !== undefined) {
+        if (temp[i].pics[0] !== undefined) {
+          src = temp[i].pics[0].url
+        } else {
+          src = temp[i].pic
+        }
+        content.push(<a href={`http://www.ibantang.com/topic/${temp[i].id}`} target="_blank" >
+          <div className="article_content">
+            <div className="article_pic" >
+              <img src={src} />
+            </div>
+            <span className="title">{temp[i].title}</span>
+            <div>
+              <img src={temp[i].user.avatar} className="peopleimg" />
+              <span className="nickname">{temp[i].user.nickname}</span>
+              <span className="likeNum">{temp[i].views}</span>
+              <img src={require('../../assets/images/Z-views.png')} className="like2" />
+              <span className="likeNum">{temp[i].likes}</span>
+              <img src={require('../../assets/images/goodlike.png')} className="like2" />
+            </div>
+          </div>
+        </a>)
+      }
+    }
+    let arr4 = []
+    if (this.state.method === 'getProductList') {
+      arr4.push(<ul>
+        <li className="rightpx" onClick={this.changesort0}>默认</li>
+        <li className="rightpx" onClick={this.changesort1}>最受欢迎</li>
+        <li className="rightpx" onClick={this.changesort3}>价格由低到高</li>
+        <li className="rightpx" onClick={this.changesort4}>价格由高到低</li>
+      </ul>)
+    } else if (this.state.method === 'getPostList') {
+      arr4.push(<ul>
+        <li className="rightpx" onClick={this.changesort0}>默认</li>
+        <li className="rightpx" onClick={this.changesort1} >最受欢迎</li>
+        <li className="rightpx" onClick={this.changesort2} >最新</li>
+      </ul>)
+    } else {
+      arr4 = []
+    }
+    let more = this.state.more
     return (
       <div>
         <div id="kinds_first_level">
@@ -304,12 +555,29 @@ class Kinds extends Component {
           </div>
         </div>
         <div className="kinds_second_level">
-          <div className="secondlevel">
+          <div className="secondlevel thirdlevel">
             {arr3}
           </div>
+        </div>
+        <div className="changemethod">
+          <div className="methodleft">
+            <div className="leftreview" onClick={this.goods} ><img src={require('../../assets/images/好物_选中.png')} className="smallpic" />好物</div>
+            <div className="leftreview" onClick={this.review} ><img src={require('../../assets/images/评价晒单.png')} className="smallpic" />晒单</div>
+            <div className="leftreview" onClick={this.article} ><img src={require('../../assets/images/照相机 (1).png')} className="smallpic" />文章</div>
+          </div>
+          <div className="methodright">
+            {arr4}
+          </div>
+        </div>
+        <div id="content">
+          {content}
+        </div>
+        <div id="morethings" onClick={this.addmore}>
+          {more}
         </div>
       </div>
     )
   }
 }
+
 export default Kinds
