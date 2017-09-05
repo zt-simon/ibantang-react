@@ -36,7 +36,7 @@ const yanbuArr = ['眼部彩妆分类', '眼线笔', '眼线膏/胶', '眼线液
 const yanbuArrid = [127, 128, 129, 130, 131, 132, 554, 582, 548]
 const meibuArr = ['眉部彩妆分类', '眉笔', '眉粉', '染眉膏', '眉部定型']
 const meibuArrid = [123, 124, 125, 553]
-const chunbuArr = ['唇部彩妆分类', '口红', '唇彩/唇蜜', '唇装套装']
+const chunbuArr = ['唇部彩妆分类', '口红', '唇彩/唇蜜', '唇妆套装']
 const chunbuArrid = [141, 142, 549]
 const meijiaArr = ['美甲护甲分类', '指甲油', '指甲贴', '美甲工具', '护甲产品', '卸甲水', '甲油胶', '美甲套装']
 const meijiaArrid = [144, 148, 153, 540, 146, 150, 547]
@@ -192,7 +192,8 @@ class Kinds extends Component {
       page: 0,
       ID: 14,
       pagesize: 20,
-      method: 'getProductList'
+      method: 'getProductList',
+      more: '点击查看更多精彩'
     }
   }
   requestpx = (method, Id, sort, page, pagesize) => {
@@ -231,7 +232,9 @@ class Kinds extends Component {
         .then(response => {
           this.setState({
             data: response.data.product,
-            ID: id
+            ID: id,
+            more: '点击查看更多精彩',
+            page: 0
           })
         })
   }
@@ -245,7 +248,9 @@ class Kinds extends Component {
         .then(response => {
           this.setState({
             data: response.data.product,
-            ID: id
+            ID: id,
+            more: '点击查看更多精彩',
+            page: 0
           })
         })
   }
@@ -259,7 +264,9 @@ class Kinds extends Component {
       .then(response => {
         this.setState({
           data: response.data.product,
-          ID: id
+          ID: id,
+          more: '点击查看更多精彩',
+          page: 0
         })
       })
   }
@@ -278,6 +285,8 @@ class Kinds extends Component {
     let name = e.target.getAttribute('name')
     this.changekindf(name)
     this.chooseKind(name)
+    var level1 = this.refs.level_1
+    console.log(level1)
   }
   changeIDs = (e) => {
     let name = e.target.getAttribute('name')
@@ -324,7 +333,8 @@ class Kinds extends Component {
   changesort0 = () => {
     this.setState({
       sort: 0,
-      page: 0
+      page: 0,
+      more: '点击查看更多精彩'
     }, function () {
       this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
     })
@@ -332,7 +342,8 @@ class Kinds extends Component {
   changesort1 = () => {
     this.setState({
       sort: 1,
-      page: 0
+      page: 0,
+      more: '点击查看更多精彩'
     }, function () {
       this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
     })
@@ -340,7 +351,8 @@ class Kinds extends Component {
   changesort2 = () => {
     this.setState({
       sort: 2,
-      page: 0
+      page: 0,
+      more: '点击查看更多精彩'
     }, function () {
       this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
     })
@@ -348,7 +360,8 @@ class Kinds extends Component {
   changesort3 = () => {
     this.setState({
       sort: 3,
-      page: 0
+      page: 0,
+      more: '点击查看更多精彩'
     }, function () {
       this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
     })
@@ -356,13 +369,14 @@ class Kinds extends Component {
   changesort4 = () => {
     this.setState({
       sort: 4,
-      page: 0
+      page: 0,
+      more: '点击查看更多精彩'
     }, function () {
       this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
     })
   }
-  requestfl = (method, Id, sort, page) => {
-    fetch(`api/g/${method}?id=${Id}&sort=${sort}&page=${page}&pagesize=20`, {
+  requestfl = (method, Id, sort, page, pagesize) => {
+    fetch(`api/g/${method}?id=${Id}&sort=${sort}&page=${page}&pagesize=${pagesize}`, {
       method: 'GET'
     })
     .then(response => {
@@ -383,14 +397,20 @@ class Kinds extends Component {
         })
       }
     })
+    this.setState({
+      more: '点击查看更多精彩',
+      page: 0
+    })
   }
   goods = () => {
     this.setState({
       method: 'getProductList',
       pagesize: 20,
-      data: []
+      data: [],
+      more: '点击查看更多精彩',
+      page: 0
     }, function () {
-      this.requestfl(this.state.method, this.state.ID, this.state.sort, this.state.page)
+      this.requestfl(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
     })
   }
 
@@ -398,18 +418,22 @@ class Kinds extends Component {
     this.setState({
       method: 'getPostList',
       pagesize: 20,
-      data: []
+      data: [],
+      more: '点击查看更多精彩',
+      page: 0
     }, () => {
-      this.requestfl(this.state.method, this.state.ID, this.state.sort, this.state.page)
+      this.requestfl(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
     })
   }
   article = () => {
     this.setState({
       method: 'getTopicList',
       pagesize: 21,
-      data: []
+      data: [],
+      more: '点击查看更多精彩',
+      page: 0
     }, function () {
-      this.requestfl(this.state.method, this.state.ID, this.state.sort, this.state.page)
+      this.requestfl(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
     })
   }
   addmore = () => {
@@ -426,14 +450,18 @@ class Kinds extends Component {
         pagesize: 20
       }, function () {
         this.request(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
-        console.log(this.state.data)
+      })
+    }
+    if (this.state.data.length < (this.state.page + 1) * this.state.pagesize) {
+      this.setState({
+        more: '没有更多了'
       })
     }
   }
   render () {
     let arr1 = []
     for (let i = 0; i < kindArr.length; i++) {
-      arr1.push(<div onClick={this.changeIDf} name={fArrid[i]}>{kindArr[i]}</div>)
+      arr1.push(<div onClick={this.changeIDf} name={fArrid[i]} ref={`level1_${i}`} >{kindArr[i]}</div>)
     }
     let arr2 = []
     arr2.push(<span className="kinds_second_level_topic" >{secnameArr[0] }</span>)
@@ -441,12 +469,13 @@ class Kinds extends Component {
       arr2.push(<div name={secnameArrid[i - 1]}key={secnameArrid[i - 1]} onClick={this.changeIDs} >{secnameArr[i]}</div>)
     }
     let arr3 = []
-    arr3.push(<span className="kinds_second_level_topic" key={thinameArr[0]}>{thinameArr[0]}</span>)
+    arr3.push(<span className="kinds_second_level_topic " key={thinameArr[0]}>{thinameArr[0]}</span>)
     for (let i = 1; i < thinameArr.length; i++) {
-      arr3.push(<div name={thinameArrid[i - 1]}key={thinameArrid[i - 1]} onClick={this.changeIDt}>{thinameArr[i]}</div>)
+      arr3.push(<div name={thinameArrid[i - 1]}key={thinameArrid[i - 1]} onClick={this.changeIDt} >{thinameArr[i]}</div>)
     }
     let content = []
     let temp = this.state.data
+    let src = null
     for (let i = 0; i < temp.length; i++) {
       if (this.state.data.length !== 0 && this.state.data[0].brand !== undefined) {
         content.push(<a href={`http://www.ibantang.com/product/${temp[i]['id']}`} target="_blank" className="things">
@@ -474,15 +503,19 @@ class Kinds extends Component {
           </div>
         </a>)
       } else if (this.state.data.length !== 0 && this.state.data[0].pics !== undefined) {
+        if (temp[i].pics[0] !== undefined) {
+          src = temp[i].pics[0].url
+        } else {
+          src = temp[i].pic
+        }
         content.push(<a href={`http://www.ibantang.com/topic/${temp[i].id}`} target="_blank" >
           <div className="article_content">
             <div className="article_pic" >
-              <img src={temp[i].pic} />
+              <img src={src} />
             </div>
             <span className="title">{temp[i].title}</span>
             <div>
               <img src={temp[i].user.avatar} className="peopleimg" />
-
               <span className="nickname">{temp[i].user.nickname}</span>
               <span className="likeNum">{temp[i].views}</span>
               <img src={require('../../assets/images/Z-views.png')} className="like2" />
@@ -510,7 +543,7 @@ class Kinds extends Component {
     } else {
       arr4 = []
     }
-
+    let more = this.state.more
     return (
       <div>
         <div id="kinds_first_level">
@@ -522,7 +555,7 @@ class Kinds extends Component {
           </div>
         </div>
         <div className="kinds_second_level">
-          <div className="secondlevel">
+          <div className="secondlevel thirdlevel">
             {arr3}
           </div>
         </div>
@@ -540,7 +573,7 @@ class Kinds extends Component {
           {content}
         </div>
         <div id="morethings" onClick={this.addmore}>
-          点击查看更多精彩
+          {more}
         </div>
       </div>
     )

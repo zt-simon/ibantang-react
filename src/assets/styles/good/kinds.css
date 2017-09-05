@@ -25,12 +25,9 @@ a {
 }
 .kinds_second_level {
   width: 950px;
-  height: 44px;
-  padding-top: 20px;
 }
 .kinds_second_level_topic {
   float: left;
-  display: inline-block;
   font-size: 12px;
   width: 80px;
   margin-left: 13px;
@@ -60,6 +57,9 @@ a {
   width: 950px;
   height: 60px;
   padding-top: 40px;
+}
+.thirdlevel {
+  margin-top: 20px;
 }
 .methodleft {
   float: left;
@@ -211,6 +211,7 @@ a {
   color: #666;
   line-height: 20px;
   height: 40px;
+  width: 220px;
   overflow: hidden;
 }
 .article_content {
