@@ -66,7 +66,7 @@ class Header extends Component {
               <div className='header_line tree_line' />
             </div>
             <div className='header_nav_li'>
-              <a href='#'>优惠券</a>
+              <a href='save.html'>优惠券</a>
               <div className='header_line tree_line' />
               <i className='i' />
             </div>
