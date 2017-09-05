@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import Header from './Header'
+import ClickMe from '../article/Clickme'
+import Scroll from '../index/scrollTop'
 var dataArr = []
 var num = 1
 
@@ -48,6 +50,7 @@ class Search extends Component {
 
   componentDidMount () {
     this.ajax('product', 0, 0, 'good')
+    window.onscroll = this.wheelScroll
   }
   goodClick = () => {
     document.getElementsByClassName('search_menu_right')[0].style.display = 'block'
@@ -133,6 +136,17 @@ class Search extends Component {
     e.target.style.color = 'red'
     this.ajax('post', 2, 0, 'share')
   }
+  wheelScroll = () => {
+    if (document.body.scrollTop > 400) {
+      this.setState({
+        state: 'block'
+      })
+    } else {
+      this.setState({
+        state: 'none'
+      })
+    }
+  }
   more = () => {
     num++
     this.setState({
@@ -173,6 +187,7 @@ class Search extends Component {
       return string
     }
   }
+
   render () {
     if (this.state.tf === 'good') {
       dataArr = this.state.data.map(function (item, index) {
@@ -243,7 +258,7 @@ class Search extends Component {
       })
     }
     return (
-      <div className='myWrap'>
+      <div className='myWrap' onWheel={this.wheelScroll}>
         <Header />
         <div className='search_box'>
           <div className='search_result'>{this.state.value}搜过结果</div>
@@ -268,7 +283,13 @@ class Search extends Component {
             </div>
           </div>
           <div className='search_main'>{dataArr}</div>
-          <div className='content-more' id='content-checkMore' onClick={this.more}>点击查看更多精彩</div>
+          <div className='content-more_N' id='content-checkMore' onClick={this.more}>点击查看更多精彩</div>
+        </div>
+        <div className='scrollTop' style={{display: this.state.state}}>
+          <Scroll />
+        </div>
+        <div className='myImg'>
+          <ClickMe />
         </div>
       </div>
     )
