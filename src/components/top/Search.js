@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Header from './Header'
+import ClickMe from '../article/Clickme'
 var dataArr = []
 var num = 1
 
@@ -269,6 +270,9 @@ class Search extends Component {
           </div>
           <div className='search_main'>{dataArr}</div>
           <div className='content-more' id='content-checkMore' onClick={this.more}>点击查看更多精彩</div>
+        </div>
+        <div className='myImg'>
+          <ClickMe />
         </div>
       </div>
     )

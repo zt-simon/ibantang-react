@@ -21,7 +21,7 @@ class Article extends Component {
           return response.json()
         })
         .then(response => {
-          // console.log(response.data)
+          console.log(response)
           this.setState({
             data: this.state.data.concat(response.data)
           })

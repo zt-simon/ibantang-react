@@ -16,6 +16,13 @@ module.exports = {
         pathRewrite: {
           '^/api': ''
         }
+      },
+      '/app': {
+        target: 'http://m.ibantang.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/app': ''
+        }
       }
     },
     autoOpenBrowser: true
