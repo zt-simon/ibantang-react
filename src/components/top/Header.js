@@ -54,7 +54,7 @@ class Header extends Component {
             <div className='header_nav_li'><a href='find.html'>发现</a></div>
             <div className='header_nav_li'><a href='#'>好物</a></div>
             <div className='header_nav_li'><a href='article.html'>写文章</a></div>
-            <div className='header_nav_li'><a href='#'>优惠券</a>
+            <div className='header_nav_li'><a href='save.html'>优惠券</a>
               <i className='i' /></div>
           </div>
           <div className='header_right'>
