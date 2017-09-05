@@ -3,6 +3,7 @@ import '../../assets/styles/find/search.styl'
 import '../../assets/styles/find/find.styl'
 import '../../assets/styles/host/content.styl'
 import '../../assets/styles/host/App.styl'
+import '../../assets/styles/host/scroll-top.styl'
 import Search from '../../components/top/Search'
 class App extends Component {
   render () {

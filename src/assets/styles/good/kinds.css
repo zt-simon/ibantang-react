@@ -1,0 +1,240 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+#kinds_first_level {
+  margin-top: 35px;
+}
+#kinds_first_level div {
+  display: inline-block;
+  color: #666;
+  width: 28px;
+  height: 22px;
+  padding: 0 15px;
+  margin: 0 10px 20px 0;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid #fff;
+}
+#kinds_first_level div:hover {
+  border: 1px solid #ffc0cb;
+  color: #f00;
+}
+.kinds_second_level {
+  width: 950px;
+}
+.kinds_second_level_topic {
+  float: left;
+  font-size: 12px;
+  width: 80px;
+  margin-left: 13px;
+  color: #999;
+}
+.secondlevel {
+  width: 860px;
+  height: 44px;
+  display: inline-block;
+}
+.secondlevel div {
+  display: inline-block;
+  height: 22px;
+  padding: 0 15px;
+  border: 1px solid #fff;
+  margin: 0 10px 20px 0;
+  font-size: 12px;
+  border-radius: 22px;
+  color: #666;
+  cursor: pointer;
+}
+.secondlevel div:hover {
+  border: 1px solid #ffc0cb;
+  color: #f00;
+}
+.changemethod {
+  width: 950px;
+  height: 60px;
+  padding-top: 40px;
+}
+.thirdlevel {
+  margin-top: 20px;
+}
+.methodleft {
+  float: left;
+}
+.leftreview {
+  float: left;
+  cursor: pointer;
+  border-top: 2px solid #fff;
+  padding-top: 10px;
+}
+.leftreview:hover {
+  border-top: 2px solid #fd6363;
+}
+.smallpic {
+  width: 18px;
+  height: 16px;
+}
+.methodleft div {
+  float: left;
+  width: 52px;
+  height: 58px;
+  margin-right: 60px;
+}
+.pic {
+  width: 220px;
+  height: 220px;
+}
+.methodright {
+  float: right;
+}
+.rightpx {
+  float: left;
+  display: inline-block;
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #999;
+}
+.rightpx:hover {
+  color: #fd6363;
+}
+.things {
+  float: left;
+  width: 220px;
+  height: 286px;
+  margin: 0 15px 23px 0;
+  text-align: center;
+  overflow: hidden;
+}
+.things img {
+  transition: all 0.6s;
+}
+.things img:hover {
+  transform: scale(1.2);
+}
+.imgDiv {
+  overflow: hidden;
+  height: 220px;
+}
+#content {
+  margin-top: 30px;
+  width: 980px;
+}
+.topic {
+  font-size: 14px;
+  color: #444;
+  padding: 5px 0;
+}
+.like {
+  width: 12px;
+  height: 11px;
+}
+.likes {
+  font-size: 12px;
+  color: #444;
+}
+.price {
+  font-size: 18px;
+  color: #444;
+  font-family: DINCondensed-Bold, DINCondensedBold;
+}
+#morethings {
+  width: 400px;
+  height: 28px;
+  margin: 40px 275px 40px 275px;
+  clear: both;
+  text-align: center;
+  color: #444;
+  background-color: #f5f5f5;
+  padding-top: 10px;
+  border-radius: 42px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.shaidandiv {
+  float: left;
+  margin: 0 20px 23px 0;
+  width: 220px;
+  height: 300px;
+  overflow: hidden;
+}
+.showDiv {
+  width: 220px;
+  height: 220px;
+  overflow: hidden;
+}
+.showDiv img {
+  width: 220px;
+  height: 220px;
+  transition: all 0.6s;
+}
+.showDiv img:hover {
+  transform: scale(1.2);
+}
+.centerdiv {
+  width: 220px;
+  height: 24px;
+  margin-top: 10px;
+}
+.peopleimg {
+  width: 24px;
+  height: 24px;
+  border-radius: 100px;
+  float: left;
+}
+.nickname {
+  float: left;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #444;
+  line-height: 24px;
+  width: 100px;
+}
+.like2 {
+  float: right;
+  width: 15px;
+  height: 11px;
+  margin-top: 7px;
+}
+.likeNum {
+  float: right;
+  color: #d8d8d8;
+  font-size: 12px;
+  margin-top: 7px;
+}
+.showcontent {
+  padding-top: 15px;
+  font-size: 12px;
+  color: #666;
+  line-height: 20px;
+  height: 40px;
+  width: 220px;
+  overflow: hidden;
+}
+.article_content {
+  width: 300px;
+  height: 238px;
+  margin: 0 25px 22px 0;
+  float: left;
+}
+.article_pic {
+  width: 300px;
+  height: 165px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.article_pic img {
+  width: 300px;
+  height: 238px;
+  transition: all 0.6s;
+}
+.article_pic img:hover {
+  transform: scale(1.2);
+}
+.title {
+  font-size: 16px;
+  color: #222;
+}

@@ -26,6 +26,10 @@ class App extends Component {
       })
     }
   }
+  componentDidMount () {
+    // window.addEventListener('scroll', this.wheelScroll)
+    window.onscroll = this.wheelScroll
+  }
   render () {
     return (
       <div onWheel={this.wheelScroll}>

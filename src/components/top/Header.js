@@ -44,14 +44,13 @@ class Header extends Component {
   render () {
     return (
       <div>
-        <div className='register' style={{display: this.state.hover}}><Register />
-        </div>
+        <div className='register' style={{display: this.state.hover}}><Register /></div>
         <div className='hover' style={{display: this.state.hover}} onClick={this.hoverClick} />
         <div className='header'>
           <div className='header_nav'>
             <div className='logo'><a href='index.html' /></div>
             <div className='header_nav_li' >
-              <a href='#' >首页</a>
+              <a href='index.html' >首页</a>
               <div className='header_line' />
             </div>
             <div className='header_nav_li'>
@@ -67,9 +66,10 @@ class Header extends Component {
               <div className='header_line tree_line' />
             </div>
             <div className='header_nav_li'>
-              <a href='preferential.html'>优惠券</a>
+              <a href='#'>优惠券</a>
               <div className='header_line tree_line' />
-              <i className='i' /></div>
+              <i className='i' />
+            </div>
           </div>
           <div className='header_right'>
             <div className='fangD'>
@@ -82,7 +82,6 @@ class Header extends Component {
           </div>
         </div>
       </div>
-
     )
   }
 }
