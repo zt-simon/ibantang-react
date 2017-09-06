@@ -15,6 +15,7 @@ class Content extends Component {
     }
   }
   detail = (type, extend, page) => {
+    var oMore = document.getElementById('content-checkMore')
     fetch('/api/topic/getHomeTopicList?type=' + type + '&extend=' + extend + '&page=0&pagesize=' + page, {
       method: 'GET'
     })
@@ -26,7 +27,11 @@ class Content extends Component {
           data: response.data.topic
         })
         pageLength = response.data.topic.length
-        console.log(pageLength)
+        if (pageLength % 30 !== 0 || pageLength === 0) {
+          oMore.innerHTML = '没有更多了'
+        } else {
+          oMore.innerHTML = '点击加载更多'
+        }
       })
   }
   click = (e) => {
@@ -40,24 +45,17 @@ class Content extends Component {
     e.target.style.color = 'white'
     e.target.style.fontWeight = 'lighter'
     page = 30
-    let oCheckMore = document.getElementById('content-checkMore')
     let name = e.target.getAttribute('name')
-    console.log(typeArray[name])
     this.setState({
       type: typeArray[name],
       extend: extendArray[name],
       page: 0
     })
-    oCheckMore.innerHTML = '点击查看更多精彩'
     this.detail(typeArray[name], extendArray[name], page)
   }
   moreClick = () => {
-    var oMore = document.getElementById('content-checkMore')
     page = page + 30
     this.detail(this.state.type, this.state.extend, page)
-    if (pageLength % 30 !== 0) {
-      oMore.innerHTML = '没有更多了'
-    }
   }
   componentDidMount () {
     fetch('/api/topic/getHomeTopicList?type=' + this.state.type + '&extend=' + this.state.extend + '&page=' + this.state.page + '&pagesize=30', {
@@ -117,35 +115,6 @@ class Content extends Component {
       </div>
     )
   }
-  // click = (e) => {
-  //   let oLi = document.getElementsByClassName('content-type')
-  //   for (var i = 0; i < oLi.length; i++) {
-  //     oLi[i].style.backgroundColor = 'white'
-  //     oLi[i].style.color = 'black'
-  //     oLi[i].style.fontWeight = ''
-  //   }
-  //   e.target.style.backgroundColor = '#fd6363'
-  //   e.target.style.color = 'white'
-  //   e.target.style.fontWeight = 'lighter'
-  //   page = 30
-  //   let name = e.target.getAttribute('name')
-  //   console.log(typeArray[name])
-  //   this.setState({
-  //     type: typeArray[name],
-  //     extend: extendArray[name],
-  //     page: 0
-  //   })
-  //   this.detail(typeArray[name], extendArray[name], page)
-  //   // oMore.innerHTML = '点击查看更多精彩'
-  // }
-  // moreClick = () => {
-  //   page = page + 30
-  //   this.detail(this.state.type, this.state.extend, page)
-  //   console.log(pageLength)
-  //   if (pageLength % 30 !== 0) {
-  //     oMore.innerHTML = '没有更多了'
-  //   }
-  // }
 }
 
 export default Content

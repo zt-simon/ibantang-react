@@ -26,12 +26,13 @@ class Scroll extends Component {
       if (distance < 20) {
         distance = 0
       } else {
-        distance = distance - 20
+        distance = distance - 100
       }
       document.body.scrollTop = distance
       if (distance === 0) {
         clearInterval(clickTimer)
       }
+      console.log(7)
     }, 3)
   }
   render () {

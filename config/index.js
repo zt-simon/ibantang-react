@@ -16,6 +16,26 @@ module.exports = {
         pathRewrite: {
           '^/api': ''
         }
+      },
+      '/app': {
+        // http://www.ibantang.com/search/getData?ot=product&st=0&q=1&page=0&pagesize=20
+        // http://localhost:5000/api/ 转换以下
+        // http://www.ibantang.com/api
+        target: 'http://m.ibantang.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/app': ''
+        }
+      },
+      '/apo': {
+        // http://www.ibantang.com/search/getData?ot=product&st=0&q=1&page=0&pagesize=20
+        // http://localhost:5000/api/ 转换以下
+        // http://www.ibantang.com/api
+        target: 'http://www.sqkb.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/apo': ''
+        }
       }
     },
     autoOpenBrowser: true
