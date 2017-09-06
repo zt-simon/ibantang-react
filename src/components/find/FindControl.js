@@ -9,17 +9,18 @@ class FindControl extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      tf: ''
+      tf: '',
+      state: ''
     }
   }
   componentDidMount () {
-    window.addEventListener('scroll', this.wheelScroll)
-    setTimeout(function () {
+    setTimeout(() => {
       this.setState({
         tf: <Footer />
       })
-    }, 2000)
+    }, 10000)
   }
+
   wheelScroll = () => {
     if (document.body.scrollTop > 400) {
       this.setState({
@@ -45,7 +46,6 @@ class FindControl extends Component {
         <div className='bottom'>
           {this.state.tf}
         </div>
-
       </div>
     )
   }
