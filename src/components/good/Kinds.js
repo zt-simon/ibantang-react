@@ -180,9 +180,12 @@ const bothsecArr = [bothmeizhuangArr, bothgehuArr, bothshipinArr, bothshenghuoAr
 const bothsecArrid = [bothmeizhuangArrid, bothgehuArrid, bothshipinArrid, bothshenghuoArrid, bothshumaArrid, bothbangongArrid, bothxiebaoArrid, bothjiadianArrid, bothyundongArrid, bothtushuArrid, bothdapeiArrid]
 let secnameArr = meizhuangArr
 let secnameArrid = meizhuangArrid
+// 接收一级目录ID
 let bt = 14
+// 设置空数组接收三级目录内容
 let thinameArr = []
 let thinameArrid = []
+// 设置初始state
 class Kinds extends Component {
   constructor (props) {
     super(props)
@@ -196,6 +199,7 @@ class Kinds extends Component {
       more: '点击查看更多精彩'
     }
   }
+  // 设置右方排序所使用的函数
   requestpx = (method, Id, sort, page, pagesize) => {
     fetch(`api/g/${method}?id=${Id}&sort=${sort}&page=${page}&pagesize=${pagesize}`, {
       method: 'GET'
@@ -219,42 +223,12 @@ class Kinds extends Component {
         }
       })
   }
+  // 挂在完成后执行
   componentDidMount () {
     this.requestpx(this.state.method, this.state.ID, this.state.sort, this.state.page, this.state.pagesize)
   }
-  changekindf = (id) => {
-    fetch(`/api/g/getProductList?id=${id}&sort=0&load=1&page=0&pagesize = 20`, {
-      method: 'GET'
-    })
-        .then(response => {
-          return response.json()
-        })
-        .then(response => {
-          this.setState({
-            data: response.data.product,
-            ID: id,
-            more: '点击查看更多精彩',
-            page: 0
-          })
-        })
-  }
-  changekinds = (id) => {
-    fetch(`/api/g/getProductList?id=${id}&sort=0&page=0&pagesize=20`, {
-      method: 'GET'
-    })
-      .then(response => {
-        return response.json()
-      })
-        .then(response => {
-          this.setState({
-            data: response.data.product,
-            ID: id,
-            more: '点击查看更多精彩',
-            page: 0
-          })
-        })
-  }
-  changekindt = (id) => {
+  // 更新目录发送请求函数
+  changekind = (id) => {
     fetch(`/api/g/getProductList?id=${id}&sort=0&page=0&pagesize = 20`, {
       method: 'GET'
     })
@@ -270,6 +244,7 @@ class Kinds extends Component {
         })
       })
   }
+  //
   chooseKind = (name) => {
     for (let i = 0; i < fArrid.length; i++) {
       if (parseInt(name) === fArrid[i]) {
@@ -283,14 +258,20 @@ class Kinds extends Component {
   }
   changeIDf = (e) => {
     let name = e.target.getAttribute('name')
-    this.changekindf(name)
+    this.changekind(name)
     this.chooseKind(name)
-    var level1 = this.refs.level_1
-    console.log(level1)
+    // for (let i = 0; i < 11; i++) {
+    //   let temp = this.refs.level1_3
+    //   temp.className = 'level_1noclick'
+    // }
+    // temp.className = 'level_1click'
+    // e.target.setAttribute('className', 'level_1click')
+    // e.target.className = 'level_1click'
+    // console.log(e.target.className)
   }
   changeIDs = (e) => {
     let name = e.target.getAttribute('name')
-    this.changekinds(name)
+    this.changekind(name)
     for (let j = 0; j < fArrid.length; j++) {
       if (bt === fArrid[j]) {
         for (let i = 0; i < secnameArrid.length; i++) {
@@ -304,7 +285,7 @@ class Kinds extends Component {
   }
   changeIDt = (e) => {
     let name = e.target.getAttribute('name')
-    this.changekindt(name)
+    this.changekind(name)
   }
   request = (method, ID, sort, page, pagesize) => {
     fetch(`/api/g/${method}?id=${ID}&sort=${sort}&page=${page}&pagesize=${pagesize}`, {
@@ -461,7 +442,7 @@ class Kinds extends Component {
   render () {
     let arr1 = []
     for (let i = 0; i < kindArr.length; i++) {
-      arr1.push(<div onClick={this.changeIDf} name={fArrid[i]} ref={`level1_${i}`} >{kindArr[i]}</div>)
+      arr1.push(<div onClick={this.changeIDf} name={fArrid[i]} ref={`level1_${i}`} className="level_1" >{kindArr[i]}</div>)
     }
     let arr2 = []
     arr2.push(<span className="kinds_second_level_topic" >{secnameArr[0] }</span>)

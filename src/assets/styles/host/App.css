@@ -90,13 +90,13 @@ img {
   margin-left: 5px;
 }
 .thirdline {
-  padding: 0px;
+  padding: 0;
   width: 460px;
   overflow: hidden;
   position: relative;
 }
 .footer-link {
-  padding: 0px;
+  padding: 0;
   margin: 0 10px;
 }
 .footer-link a {

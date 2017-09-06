@@ -24,18 +24,25 @@
 }
 body,
 html {
+  width: 2000px;
+  height: 100%;
+}
+.download-maskBorder {
   width: 100%;
   height: 100%;
+  border: 1px solid #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
 }
 .download-mask {
   width: 100%;
   height: 100%;
   background-color: #000;
   opacity: 0.5;
-  position: fixed;
-  top: 0;
-  left: 0;
   z-index: 100;
+  overflow: hidden;
 }
 .app-downloadCode {
   width: 720px;
