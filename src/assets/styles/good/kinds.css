@@ -8,7 +8,7 @@ a {
 #kinds_first_level {
   margin-top: 35px;
 }
-#kinds_first_level div {
+.level_1 {
   display: inline-block;
   color: #666;
   width: 28px;
@@ -19,7 +19,29 @@ a {
   border-radius: 20px;
   border: 1px solid #fff;
 }
-#kinds_first_level div:hover {
+.level_1noclick {
+  display: inline-block;
+  color: #666;
+  width: 28px;
+  height: 22px;
+  padding: 0 15px;
+  margin: 0 10px 20px 0;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid #fff;
+}
+.level_1click {
+  display: inline-block;
+  width: 28px;
+  height: 22px;
+  padding: 0 15px;
+  margin: 0 10px 20px 0;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid #ffc0cb;
+  color: #f00;
+}
+level1:hover {
   border: 1px solid #ffc0cb;
   color: #f00;
 }
