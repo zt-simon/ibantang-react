@@ -24,6 +24,7 @@ class Slide extends Component {
         leftSpeed = 0
       }
       if (leftSpeed % 660 === 0) {
+        speed = 10
         this.setState({
           leftDistance: 20 - leftSpeed / 660 * 25
         })
@@ -58,13 +59,13 @@ class Slide extends Component {
       this.setState({
         left: leftSpeed
       })
-      this.a()
+      this.slide()
     } else {
       speed = 10
       this.setState({
         left: num * 660
       })
-      this.a()
+      this.slide()
     }
   }
   componentDidMount () {

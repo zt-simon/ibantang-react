@@ -36,7 +36,9 @@ class App extends Component {
         <div className='header'>
           <Header />
         </div>
-        <SlideShow />
+        <div className='mask'>
+          <SlideShow />
+        </div>
         <div className='click'>
           <Clickme />
         </div>

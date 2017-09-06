@@ -39,7 +39,6 @@ module.exports = {
       }
     },
     autoOpenBrowser: true
-
   },
     // 生产环境配置
   build: {
