@@ -3,6 +3,24 @@ html {
   padding: 0;
   margin: 0;
   height: 100%;
+  background-color: #fff;
+}
+.content-more_N {
+  width: 400px;
+  height: 42px;
+  text-align: center;
+  float: left;
+  margin: 30px 250px;
+  line-height: 42px;
+  font-size: 14px;
+  border-radius: 42px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.myImg {
+  position: fixed;
+  right: 0;
+  bottom: 100px;
 }
 .myWrap {
   width: 100%;
@@ -101,7 +119,10 @@ html {
   width: 220px;
   height: 34px;
   text-align: center;
-
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .share_req {
   width: 220px;
@@ -150,10 +171,14 @@ html {
   transition: all 1s;
 }
 .search_title_content {
-  font-size: 1.2em;
   width: 300px;
   height: 33px;
   margin: 5px 0 5px 0;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
 }
 .share_rad_search {
   width: 24px;

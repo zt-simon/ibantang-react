@@ -266,7 +266,7 @@ class Kinds extends Component {
     // }
     // temp.className = 'level_1click'
     // e.target.setAttribute('className', 'level_1click')
-    e.target.className = 'level_1click'
+    // e.target.className = 'level_1click'
     // console.log(e.target.className)
   }
   changeIDs = (e) => {

@@ -66,8 +66,23 @@ html {
   color: #777;
 }
 .header_nav_li a:hover {
-  border-bottom: 2px solid #f00;
   color: #000;
+}
+.header_line {
+  width: 0;
+  height: 2px;
+  background-color: #f00;
+  margin-left: 45%;
+  margin-top: 5px;
+  transition: all 0.3s ease-in;
+}
+.header_nav_li:hover .header_line {
+  width: 28px;
+  margin-left: 0;
+}
+.header_nav_li:hover .tree_line {
+  width: 40px;
+  margin-left: 0;
 }
 i {
   background: url("../../images/new.png") no-repeat;
@@ -138,6 +153,11 @@ i {
 .main_left {
   width: 160px;
   float: left;
+}
+.myImg {
+  position: fixed;
+  right: 0;
+  bottom: 270px;
 }
 .main_left ul {
   list-style: none;

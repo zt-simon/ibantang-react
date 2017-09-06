@@ -85,7 +85,7 @@ class Aboutheader extends Component {
             <a href='index.html'><div className={this.state.class} /></a>
             <div><a href='index.html' style={{color: this.state.wordColor}}>首页</a></div>
             <div><a href='find.html' style={{color: this.state.wordColor}}>发现</a></div>
-            <div><a href='#' style={{color: this.state.wordColor}}>好物</a></div>
+            <div><a href='good.html' style={{color: this.state.wordColor}}>好物</a></div>
             <div><a href='article.html' style={{color: this.state.wordColor}}>写文章</a></div>
             <div><a href='http://www.sqkb.com/' style={{color: this.state.wordColor}}>优惠券</a><i /></div>
           </div>
